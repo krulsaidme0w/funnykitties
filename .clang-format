@@ -1,4 +1,4 @@
-BasedOnStyle: Microsoft
+BasedOnStyle: Google
 AlignEscapedNewlines: Right
 AllowShortLoopsOnASingleLine: 'true'
 ColumnLimit: '120'

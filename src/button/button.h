@@ -2,14 +2,13 @@
 
 namespace gui {
 
+class Button : public sf::Drawable {
+ public:
+  Button();
+  ~Button();
+  void update(sf::Event &e, sf::RenderWindow &window);
 
-    class Button : public sf::Drawable {
-      public:
-        Button();
-        ~Button();
-        void update(sf::Event& e, sf::RenderWindow& window);
-      private:
+ private:
+};
 
-    };
-
-}
+}  // namespace gui
