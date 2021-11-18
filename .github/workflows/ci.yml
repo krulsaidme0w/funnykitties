@@ -1,0 +1,39 @@
+name: ci
+on:
+  push:
+    branches: [dev, main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  tp_iz_1:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install build-essential
+        run: sudo apt install build-essential
+
+      - name: install lcov
+        run: sudo apt install lcov
+
+      - name: install valgrind
+        run: sudo apt install valgrind
+
+      - name: install git
+        run: sudo apt install git
+
+      - name: install gtest
+        run: sudo apt install libgtest-dev
+
+      - name: install cppcheck
+        run: sudo apt-get install cppcheck
+
+      - name: install python3
+        run: sudo apt-get install python
+
+      - name: install cpplint
+        run: pip3 install cpplint
