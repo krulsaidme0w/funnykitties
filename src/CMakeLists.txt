@@ -1,2 +1,2 @@
-add_subdirectory(button)
+add_subdirectory(gui)
 add_subdirectory(menu)
