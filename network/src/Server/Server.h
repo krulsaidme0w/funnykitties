@@ -7,19 +7,19 @@ namespace network {
             }
 
         protected:
-            bool OnClientConnect(std::shared_ptr<olc::net::connection<GameMsg>> client) override {
+            bool OnClientConnect(std::shared_ptr<network::types<GameMsg>> client) override {
                 return true;
             }
 
-            void OnClientValidated(std::shared_ptr<olc::net::connection<GameMsg>> client) override {
+            void OnClientValidated(std::shared_ptr<network::types<GameMsg>> client) override {
 
             }
 
-            void OnClientDisconnect(std::shared_ptr<olc::net::connection<GameMsg>> client) override {
+            void OnClientDisconnect(std::shared_ptr<network::types<GameMsg>> client) override {
 
             }
 
-            void OnMessage(std::shared_ptr<olc::net::connection<GameMsg>> client, olc::net::message<GameMsg>& msg) override {
+            void OnMessage(std::shared_ptr<network::types<GameMsg>> client, olc::net::message<GameMsg>& msg) override {
             }
 
     }

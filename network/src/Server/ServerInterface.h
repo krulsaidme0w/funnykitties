@@ -1,12 +1,12 @@
 #include <iostream>
 
 namespace network {
-    class serverInterface {
+    class ServerInterface {
         public:
-			serverInterface(uint16_t port) {
+			ServerInterface(uint16_t port) {
 			}
 
-			virtual ~serverInterface() {
+			virtual ~ServerInterface() {
 				Stop();
 			}
 
