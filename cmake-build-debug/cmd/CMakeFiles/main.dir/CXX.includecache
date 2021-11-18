@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/krulsaidme0w/Documents/funnykitties/cmd/main.cpp
+iostream
+/home/krulsaidme0w/Documents/funnykitties/cmd/iostream
+

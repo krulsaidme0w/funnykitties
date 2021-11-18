@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="funny_kitties"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;CMake Files\src\;CMake Files\src\button\;CMake Files\src\menu\;CMake Files\cmd\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="button">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/libbutton.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/button"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 button"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="button/fast">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/libbutton.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/button"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 button/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/button/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="menu">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/libmenu.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/menu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 menu"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="menu/fast">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/libmenu.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/menu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 menu/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/src/menu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/menu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/krulsaidme0w/Documents/funnykitties/src/menu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/cmd/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/cmd/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/button/button.cpp">
+			<Option target="button"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/button/button.h">
+			<Option target="button"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/menu/menu.cpp">
+			<Option target="menu"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/menu/menu.h">
+			<Option target="menu"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/button/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\button\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/menu/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\menu\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/cmd/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmd\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
