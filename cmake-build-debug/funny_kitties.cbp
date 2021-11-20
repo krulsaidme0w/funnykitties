@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="funny_kitties"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;CMake Files\src\;CMake Files\src\gamecontroller\;CMake Files\src\gameobject\;CMake Files\src\player\;CMake Files\tests\;CMake Files\tests\gamecontroller\;CMake Files\tests\player\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gamecontroller_tests">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/gamecontroller_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 gamecontroller_tests"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gamecontroller_tests/fast">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/gamecontroller_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 gamecontroller_tests/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/gamecontroller/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="player_tests">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/player_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 player_tests"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="player_tests/fast">
+				<Option output="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/player_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 player_tests/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/krulsaidme0w/Documents/funnykitties/cmake-build-debug/tests/player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/gamecontroller/gamecontroller_tests.cpp">
+			<Option target="gamecontroller_tests"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/gamecontroller/main.cpp">
+			<Option target="gamecontroller_tests"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/player/main.cpp">
+			<Option target="player_tests"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/player/player_tests.cpp">
+			<Option target="player_tests"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/gamecontroller/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\gamecontroller\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/gameobject/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\gameobject\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/src/player/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\player\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/gamecontroller/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\gamecontroller\"/>
+		</Unit>
+		<Unit filename="/home/krulsaidme0w/Documents/funnykitties/tests/player/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\player\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="funny_kitties" targetName="gamecontroller_tests" />
+      <config projectName="funny_kitties" targetName="player_tests" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b1f800d-b264-42b6-ab95-fcf4d4a2d1a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamecontroller/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameobject/gameobject.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/player/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/player/player.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/player/player.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/gamecontroller_tests.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/player/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/player/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/player/player_tests.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20BfWB0FqoSETfpdRfhNwp0mhdq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/player" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/player" />
+      <recent name="$PROJECT_DIR$/src/player" />
+      <recent name="$PROJECT_DIR$/src/gameobject" />
+      <recent name="$PROJECT_DIR$/src/button" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Google Test.gamecontroller_tests">
+    <configuration name="gamecontroller_tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="gamecontroller_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="gamecontroller_tests" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="player_tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="player_tests" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Google Test.gamecontroller_tests" />
+      <item itemvalue="Google Test.player_tests" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b1f800d-b264-42b6-ab95-fcf4d4a2d1a1" name="Changes" comment="" />
+      <created>1635522933322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635522933322</updated>
+      <workItem from="1635522938505" duration="2895000" />
+      <workItem from="1635645874853" duration="36000" />
+      <workItem from="1637247162486" duration="736000" />
+      <workItem from="1637251872232" duration="3953000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
