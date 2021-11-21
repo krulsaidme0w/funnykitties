@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/gamecontroller_tests.dir/main.cpp.o CMakeFiles/gamecontroller_tests.dir/gamecontroller_tests.cpp.o -o gamecontroller_tests  /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 
