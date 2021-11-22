@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="funny_kitties" targetName="gamecontroller_tests" />
+      <config projectName="funny_kitties" targetName="gameobject" />
+      <config projectName="funny_kitties" targetName="player" />
       <config projectName="funny_kitties" targetName="player_tests" />
     </generated>
   </component>
@@ -13,29 +18,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1f800d-b264-42b6-ab95-fcf4d4a2d1a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamecontroller/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gameobject/gameobject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/player/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/player/player.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/player/player.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/gamecontroller_tests.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/gamecontroller/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/player/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/player/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/player/player_tests.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/player/cat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/player/cat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/player/player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/player/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/player/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/player/player_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/player_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
@@ -66,9 +69,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/player" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -78,14 +85,13 @@
       <recent name="$PROJECT_DIR$/src/button" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.gamecontroller_tests">
-    <configuration name="gamecontroller_tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="gamecontroller_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="gamecontroller_tests" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Google Test.PLAYER_TESTS.PLAYER_DRAW">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="player_tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="player_tests" TEST_MODE="SUITE_TEST">
+    <configuration name="PLAYER_TESTS.PLAYER_DRAW" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="player_tests" TEST_CLASS="PLAYER_TESTS" TEST_METHOD="PLAYER_DRAW" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -96,15 +102,38 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="gamecontroller_tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="gamecontroller_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="gamecontroller_tests">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gameobject" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="gameobject" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="player" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="player_tests" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="player_tests">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Google Test.gamecontroller_tests" />
-      <item itemvalue="Google Test.player_tests" />
+      <item itemvalue="CMake Application.gamecontroller_tests" />
+      <item itemvalue="CMake Application.player_tests" />
+      <item itemvalue="CMake Application.gameobject" />
+      <item itemvalue="CMake Application.player" />
+      <item itemvalue="Google Test.PLAYER_TESTS.PLAYER_DRAW" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Google Test.PLAYER_TESTS.PLAYER_DRAW" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,6 +147,7 @@
       <workItem from="1635645874853" duration="36000" />
       <workItem from="1637247162486" duration="736000" />
       <workItem from="1637251872232" duration="3953000" />
+      <workItem from="1637519327789" duration="20627000" />
     </task>
     <servers />
   </component>
@@ -138,5 +168,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
