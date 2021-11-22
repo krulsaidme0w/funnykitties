@@ -32,11 +32,19 @@ namespace Player {
             RIGHT
         };
 
+        enum STATE {
+            JUMPING,
+            FALLING,
+            ON_GROUND
+        };
+
         sf::Vector2f speed;
 
         float jumpAcceleration;
         float gravitation;
         float maxSpeed;
+
+        int state;
 
         void handleKeys(std::array<bool, KEYS_COUNT> keyState);
         void moveX(SIDE);

@@ -9,8 +9,10 @@ Player::Player::Player(sf::Vector2f speed, float jumpAcceleration, float gravita
     this->jumpAcceleration = jumpAcceleration;
     this->maxSpeed = maxSpeed;
 
+    this->state = FALLING;
+
     this->texture = texture;
-    this->sprite.setTexture(texture, true);
+    this->sprite.setTexture(this->texture);
 }
 
 Player::Player::~Player() = default;
@@ -45,14 +47,23 @@ void Player::Player::moveX(Player::Player::SIDE side) {
 
 void Player::Player::moveY() {
     speed.y += gravitation;
+
     if(std::abs(speed.y) > maxSpeed) {
-        speed.y = maxSpeed * (std::abs(speed.y) / speed.y);
+        speed.y = -1 * maxSpeed * (std::abs(speed.y) / speed.y);
     }
+
+    if(speed.y > 0) {
+        state = FALLING;
+    }
+
     this->sprite.move(0, speed.y);
 }
 
 void Player::Player::jump() {
-    speed.y += jumpAcceleration;
+    if(state != JUMPING) {
+        speed.y = jumpAcceleration;
+        state = JUMPING;
+    }
 }
 
 void Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {

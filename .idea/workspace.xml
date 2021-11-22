@@ -18,18 +18,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1f800d-b264-42b6-ab95-fcf4d4a2d1a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/player/cat.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/player/cat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player/player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/player/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/player/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/player/player_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/player_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +138,7 @@
       <workItem from="1635645874853" duration="36000" />
       <workItem from="1637247162486" duration="736000" />
       <workItem from="1637251872232" duration="3953000" />
-      <workItem from="1637519327789" duration="20627000" />
+      <workItem from="1637519327789" duration="23515000" />
     </task>
     <servers />
   </component>
