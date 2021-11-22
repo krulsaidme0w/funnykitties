@@ -15,9 +15,12 @@ TEST(PLAYER_TESTS, PLAYER_DRAW)
     sf::Vector2f speed;
     speed.x = 1;
     speed.y = 0;
-    float jumpAcceleration = -2.5;
+    float jumpAcceleration = -5;
     float gravitation = 0.05;
     float maxSpeed = 100000;
+
+    int width = 25;
+    int height = 18;
 
     sf::Texture texture;
     if(!texture.loadFromFile("../../../assets/player/cat.png")) {
@@ -26,6 +29,17 @@ TEST(PLAYER_TESTS, PLAYER_DRAW)
 
     Player::Player player = Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, texture);
     player.SetCoordinates(sf::Vector2f(300, 300));
+
+    std::vector<std::vector<std::pair<sf::Sprite, sf::Texture>>> map{};
+
+    auto* sprites = new sf::Sprite[height * width];
+    auto* textures = new sf::Texture[height * width];
+
+    for(int i = 0; i < height * width; ++i) {
+        textures[i].loadFromFile("../../../assets/player/cat.png");
+        sprites[i].setTexture(textures[i]);
+        sprites[i].setPosition(float(i % width) * 32, float(i / width) * 32);
+    }
 
     std::array<bool, Player::KEYS_COUNT> keyState;
     keyState[0] = false;
@@ -75,13 +89,18 @@ TEST(PLAYER_TESTS, PLAYER_DRAW)
 
         window.clear();
 
+        for(int i = 0; i < height * width; ++i) {
+            window.draw(sprites[i]);
+        }
+
         player.Update(keyState);
 
         window.draw(player.GetSprite());
 
-        std::cout << player.GetCoordinates().x << ' ' << player.GetCoordinates().y << '\n';
-
         window.display();
-
     }
+
+    delete[] sprites;
+    delete[] textures;
+
 }

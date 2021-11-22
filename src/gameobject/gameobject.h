@@ -15,7 +15,7 @@ namespace GameObject {
           void SetSprite(sf::Sprite sprite);
           sf::Sprite GetSprite();
 
-          void SetTextue(sf::Texture texture);
+          void SetTexture(sf::Texture texture);
           sf::Texture GetTexture();
 
       protected:

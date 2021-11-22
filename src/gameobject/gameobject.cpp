@@ -22,7 +22,7 @@ sf::Sprite GameObject::GameObject::GetSprite() {
     return this->sprite;
 }
 
-void GameObject::GameObject::SetTextue(sf::Texture) {
+void GameObject::GameObject::SetTexture(sf::Texture) {
     this->texture = texture;
 }
 

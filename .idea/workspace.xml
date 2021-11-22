@@ -9,6 +9,7 @@
       <config projectName="funny_kitties" targetName="gameobject" />
       <config projectName="funny_kitties" targetName="player" />
       <config projectName="funny_kitties" targetName="player_tests" />
+      <config projectName="funny_kitties" targetName="gamecontroller" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -19,8 +20,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7b1f800d-b264-42b6-ab95-fcf4d4a2d1a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player/player.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/player/player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamecontroller/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamecontroller/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamecontroller/gamecontroller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameobject/gameobject.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameobject/gameobject.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/player/player_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/player/player_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,12 +80,7 @@
       <recent name="$PROJECT_DIR$/src/button" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.PLAYER_TESTS.PLAYER_DRAW">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="CMake Application.player_tests">
     <configuration name="PLAYER_TESTS.PLAYER_DRAW" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="player_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="funny_kitties" RUN_TARGET_NAME="player_tests" TEST_CLASS="PLAYER_TESTS" TEST_METHOD="PLAYER_DRAW" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -89,6 +88,11 @@
       </method>
     </configuration>
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gamecontroller" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="funny_kitties" TARGET_NAME="gamecontroller" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -113,9 +117,15 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.gamecontroller_tests" />
       <item itemvalue="CMake Application.player_tests" />
+      <item itemvalue="CMake Application.gamecontroller" />
       <item itemvalue="CMake Application.gameobject" />
       <item itemvalue="CMake Application.player" />
       <item itemvalue="Google Test.PLAYER_TESTS.PLAYER_DRAW" />
@@ -138,7 +148,8 @@
       <workItem from="1635645874853" duration="36000" />
       <workItem from="1637247162486" duration="736000" />
       <workItem from="1637251872232" duration="3953000" />
-      <workItem from="1637519327789" duration="23515000" />
+      <workItem from="1637519327789" duration="23682000" />
+      <workItem from="1637587782930" duration="5446000" />
     </task>
     <servers />
   </component>
