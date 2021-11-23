@@ -111,40 +111,4 @@ TEST(GC, GC) {
     gamecontroller.Run(window);
 }
 
-TEST(MAP, MAP_PARSER) {
-
-    std::string path = "../../../levels/map.json";
-
-    Map::MapParser p = Map::MapParser();
-    p.GetMap(path);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
