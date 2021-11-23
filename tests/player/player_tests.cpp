@@ -6,6 +6,8 @@
 #include "SFML/Graphics.hpp"
 #include "iostream"
 
+#include "fstream"
+
 #include "map.h"
 #include "mapparser.h"
 
@@ -102,7 +104,7 @@ TEST(PLAYER_TESTS, PLAYER_DRAW)
 }
 
 TEST(GC, GC) {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "PLAYER_TEST");
+    sf::RenderWindow window(sf::VideoMode(1920, 960), "PLAYER_TEST");
     window.setFramerateLimit(60);
 
     GameController::GameController gamecontroller = GameController::GameController();
@@ -110,8 +112,12 @@ TEST(GC, GC) {
 }
 
 TEST(MAP, MAP_PARSER) {
+
+    std::string path = "../../../levels/map.json";
+
     Map::MapParser p = Map::MapParser();
-    p.GetMap("../../levels/map.json");
+    p.GetMap(path);
+
 }
 
 
