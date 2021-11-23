@@ -104,7 +104,7 @@ TEST(PLAYER_TESTS, PLAYER_DRAW)
 }
 
 TEST(GC, GC) {
-    sf::RenderWindow window(sf::VideoMode(1920, 960), "PLAYER_TEST");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "PLAYER_TEST");
     window.setFramerateLimit(60);
 
     GameController::GameController gamecontroller = GameController::GameController();
