@@ -1,0 +1,8 @@
+//
+// Created by krul on 11/23/21.
+//
+
+#ifndef FUNNY_KITTIES_MAPPARSER_H
+#define FUNNY_KITTIES_MAPPARSER_H
+
+#endif //FUNNY_KITTIES_MAPPARSER_H
