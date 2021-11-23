@@ -1,6 +1,6 @@
 #pragma once
 
-#include "iostream"
+#include "string"
 #include "SFML/Graphics.hpp"
 
 namespace GameObject {
@@ -15,7 +15,7 @@ namespace GameObject {
           void SetSprite(sf::Sprite sprite);
           sf::Sprite GetSprite();
 
-          void SetTexture(sf::Texture texture);
+          void SetTexture(std::string path);
           sf::Texture GetTexture();
 
       protected:

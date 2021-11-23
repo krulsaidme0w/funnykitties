@@ -14,9 +14,21 @@ namespace Player {
         KEYS_COUNT
     };
 
-    class Player : public GameObject::GameObject {
+    enum SIDE {
+        LEFT,
+        RIGHT
+    };
+
+    enum STATE {
+        JUMPING,
+        FALLING,
+        ON_GROUND
+    };
+
+    class Player final : public GameObject::GameObject {
     public:
-        Player(sf::Vector2f speed, float jumpAcceleration, float gravitation, float maxSpeed, sf::Texture texture);
+        explicit Player(sf::Vector2f speed, float jumpAcceleration, float gravitation, float maxSpeed, std::string path);
+        explicit Player();
         ~Player() final;
 
         virtual void Update(std::array<bool, KEYS_COUNT> keyState);
@@ -24,22 +36,17 @@ namespace Player {
         void SetSpeed(sf::Vector2f speed);
         void SetJumpAcceleration(float jumpAcceleration);
         void SetGravitation(float gravitation);
+        void SetMaxSpeed(float maxSpeed);
+        void SetState(STATE);
+
+        sf::Vector2f GetSpeed() const;
+        float GetJumpAcceleration() const;
+        float GetGravitation() const;
+        float GetMaxSpeed() const;
+        STATE GetState() const;
 
     private:
-
-        enum SIDE {
-            LEFT,
-            RIGHT
-        };
-
-        enum STATE {
-            JUMPING,
-            FALLING,
-            ON_GROUND
-        };
-
         sf::Vector2f speed;
-
         float jumpAcceleration;
         float gravitation;
         float maxSpeed;
