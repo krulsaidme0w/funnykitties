@@ -2,47 +2,49 @@
 
 #include "SFML/Graphics.hpp"
 #include "vector"
+#include "string"
+#include "iostream"
 
 namespace Map {
 
-    struct Object
-    {
-        int GetPropertyInt(std::string name);
-        float GetPropertyFloat(std::string name);
-        std::string GetPropertyString(std::string name);
-
-        std::string name;
-        std::string type;
-        sf::Rect<int> rect;
-        std::map<std::string, std::string> properties;
-
-        sf::Sprite sprite;
+    struct TileSet {
+        std::string path;
+        int columns;
+        int rows;
+        std::vector<sf::Rect<int>> rects;
     };
 
-    struct Layer
-    {
+    struct Layer {
         int opacity;
+        std::string name;
         std::vector<sf::Sprite> tiles;
     };
 
     class Map {
     public:
+        friend class MapParser;
+
         explicit Map();
         ~Map();
-        bool LoadFromFile(std::string filename);
-        Object GetObject(const std::string& name);
-        std::vector<Object> GetObjects(const std::string& name);
+
         void Draw(sf::RenderWindow &window);
-        sf::Vector2i GetTileSize() const;
+        std::vector<sf::Sprite> GetTilesFromLayer(std::string layer);
+        std::pair<int, int> GetSize();
+        std::pair<int, int> GetTileSize();
+
     private:
         int width;
         int height;
+
         int tileWidth;
         int tileHeight;
-        int firstTileID;
-        sf::Rect<float> drawingBounds;
-        sf::Texture tileSetImage;
-        std::vector<Object> objects;
+
+        int firstID;
+
+        sf::Texture texture;
+        sf::Image image;
+
         std::vector<Layer> layers;
+        TileSet tileSet;
     };
 }

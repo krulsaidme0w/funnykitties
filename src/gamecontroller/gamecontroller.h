@@ -13,11 +13,10 @@ namespace GameController {
     private:
         Player::Player* player;
         Map::Map map;
-
-        std::array<bool, Player::KEYS_COUNT> keyState;
+        std::array<bool, Player::KEYS_COUNT> keyState{};
 
         void initPlayer();
-
         void handleKeys(sf::Event& event);
+        void checkCollisionWithPlatforms();
     };
 }

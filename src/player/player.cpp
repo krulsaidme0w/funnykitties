@@ -71,13 +71,17 @@ Player::STATE Player::Player::GetState() const {
     return static_cast<STATE>(this->state);
 }
 
+Player::SIDE Player::Player::GetSide() const {
+    return static_cast<SIDE>(this->side);
+}
 
 void Player::Player::moveX(SIDE side) {
-    if(side == RIGHT) {
+    this->side = side;
+    if(this->side == RIGHT) {
         this->sprite.move(speed.x, 0);
     }
 
-    if(side == LEFT) {
+    if(this->side == LEFT) {
         this->sprite.move(-1 * speed.x, 0);
     }
 }
@@ -97,7 +101,7 @@ void Player::Player::moveY() {
 }
 
 void Player::Player::jump() {
-    if(state != JUMPING) {
+    if(state == ON_GROUND) {
         speed.y = jumpAcceleration;
         state = JUMPING;
     }

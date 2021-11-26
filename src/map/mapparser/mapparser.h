@@ -1,8 +1,13 @@
-//
-// Created by krul on 11/23/21.
-//
+#pragma once
 
-#ifndef FUNNY_KITTIES_MAPPARSER_H
-#define FUNNY_KITTIES_MAPPARSER_H
+#include "map.h"
+#include "string"
 
-#endif //FUNNY_KITTIES_MAPPARSER_H
+namespace Map {
+    class MapParser {
+    public:
+        MapParser() = default;
+        ~MapParser() = default;
+        Map GetMap(const std::string& path);
+    };
+}

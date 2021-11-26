@@ -44,6 +44,7 @@ namespace Player {
         float GetGravitation() const;
         float GetMaxSpeed() const;
         STATE GetState() const;
+        SIDE GetSide() const;
 
     private:
         sf::Vector2f speed;
@@ -52,6 +53,7 @@ namespace Player {
         float maxSpeed;
 
         int state;
+        int side;
 
         void handleKeys(std::array<bool, KEYS_COUNT> keyState);
         void moveX(SIDE);

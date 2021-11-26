@@ -1,10 +1,16 @@
 #include "gamecontroller.h"
 
+#include "mapparser.h"
+
 #include "SFML/Graphics.hpp"
+#include "iostream"
 
 GameController::GameController::GameController() {
     initPlayer();
-    this->map.LoadFromFile("../../../levels/demo_map.tmx");
+
+    Map::MapParser parser = Map::MapParser();
+    this->map = parser.GetMap("../../../levels/map2.json");
+
     this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
 }
 
@@ -25,12 +31,13 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
             handleKeys(event);
         }
 
-        window.clear();
+        window.clear(sf::Color(56, 53, 53, 255));
 
-        map.Draw(window);
+        this->map.Draw(window);
 
         this->player->Update(keyState);
         keyState[Player::KEY_JUMP] = false;
+        checkCollisionWithPlatforms();
         window.draw(this->player->GetSprite());
 
         window.display();
@@ -39,15 +46,15 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
 void GameController::GameController::initPlayer() {
     sf::Vector2f speed;
-    speed.x = 1;
+    speed.x = 1.5;
     speed.y = 0;
-    float jumpAcceleration = -2.5;
-    float gravitation = 0.05;
+    float jumpAcceleration = -5;
+    float gravitation = 0.09;
     float maxSpeed = 100;
-    std::string path = "../../../assets/player/cat.png";
+    std::string path = "../../../assets/player/cat1.png";
 
     this->player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
-    this->player->SetCoordinates(sf::Vector2f(300, 300));
+    this->player->SetCoordinates(sf::Vector2f(300, 100));
 }
 
 void GameController::GameController::handleKeys(sf::Event& event) {
@@ -79,4 +86,46 @@ void GameController::GameController::handleKeys(sf::Event& event) {
                 break;
         }
     }
+}
+
+void GameController::GameController::checkCollisionWithPlatforms() {
+
+    sf::Vector2f playerPosition = player->GetCoordinates();
+    sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
+
+    std::pair<int, int> tileSize = map.GetTileSize();
+//    std::pair<int, int> additionalTiles = std::make_pair(playerSize.x / tileSize.first + 1, playerSize.y / tileSize.second + 1);
+//
+//    std::pair<int, int> playerRowColumn = std::make_pair(playerPosition.x / tileSize.first, playerPosition.y / tileSize.second);
+//
+//    std::pair<int, int> mapSize = map.GetSize();
+
+    std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
+
+    for(int index = 0; index < tiles.size(); ++index) {
+        if(player->GetSprite().getGlobalBounds().intersects(tiles[index].getGlobalBounds())) {
+//            if(player->GetSide() == Player::SIDE::LEFT) {
+//                player->SetCoordinates(sf::Vector2f(tiles[index].getPosition().x + tileSize.first, player->GetCoordinates().y));
+//            }
+//            if(player->GetSide() == Player::SIDE::RIGHT) {
+//                player->SetCoordinates(sf::Vector2f(tiles[index].getPosition().x - playerSize.x, player->GetCoordinates().y));
+//            }
+
+            sf::Vector2f speed = player->GetSpeed();
+
+            if(speed.y < 0) {
+                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tiles[index].getPosition().y + tileSize.second));
+            }
+
+            if(speed.y > 0) {
+                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tiles[index].getPosition().y - playerSize.y));
+                player->SetState(Player::ON_GROUND);
+                player->SetSpeed(sf::Vector2f(speed.x, 0));
+            }
+
+        }
+    }
+
+
+
 }
