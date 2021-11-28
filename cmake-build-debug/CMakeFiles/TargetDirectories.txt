@@ -1,0 +1,6 @@
+/home/sonichka/Documents/funnykitties/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sonichka/Documents/funnykitties/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sonichka/Documents/funnykitties/cmake-build-debug/CMakeFiles/main.dir
+/home/sonichka/Documents/funnykitties/cmake-build-debug/menu/CMakeFiles/rebuild_cache.dir
+/home/sonichka/Documents/funnykitties/cmake-build-debug/menu/CMakeFiles/edit_cache.dir
+/home/sonichka/Documents/funnykitties/cmake-build-debug/menu/CMakeFiles/menu.dir

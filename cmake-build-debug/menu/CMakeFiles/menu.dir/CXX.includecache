@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sonichka/Documents/Project/menu/menu.cpp
+menu.h
+/home/sonichka/Documents/Project/menu/menu.h
+
+/home/sonichka/Documents/Project/menu/menu.h
+SFML/Graphics.hpp
+/home/sonichka/Documents/Project/menu/SFML/Graphics.hpp
+
