@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/sonichka/Documents/Project/menu/menu.cpp
+/home/sonichka/Documents/funnykitties/menu/menu.cpp
 menu.h
-/home/sonichka/Documents/Project/menu/menu.h
+/home/sonichka/Documents/funnykitties/menu/menu.h
 
-/home/sonichka/Documents/Project/menu/menu.h
+/home/sonichka/Documents/funnykitties/menu/menu.h
 SFML/Graphics.hpp
-/home/sonichka/Documents/Project/menu/SFML/Graphics.hpp
+/home/sonichka/Documents/funnykitties/menu/SFML/Graphics.hpp
 
