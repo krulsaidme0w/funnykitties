@@ -6,6 +6,8 @@
 #define PROJECT_MENU_H
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "vector"
+#include "button.h"
 
 #define MAX_NUMBER_OF_ITEMS 3
 
@@ -27,7 +29,10 @@ namespace Menu {
     private:
         int selectItemIndex;
         sf::Font font;
-        sf::Text menu[MAX_NUMBER_OF_ITEMS];
+//        sf::Text menu[MAX_NUMBER_OF_ITEMS];
+        std::vector<GUI::Button> menu;
+        sf::Texture idleTexture;
+        sf::Texture activeTexture;
     };
 }
 
