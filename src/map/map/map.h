@@ -1,9 +1,12 @@
 #pragma once
 
+#include "player.h"
+
 #include "SFML/Graphics.hpp"
 #include "vector"
 #include "string"
 #include "iostream"
+#include "array"
 
 namespace Map {
 
@@ -27,7 +30,9 @@ namespace Map {
         explicit Map();
         ~Map();
 
+        void Update(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed);
         void Draw(sf::RenderWindow &window);
+
         std::vector<sf::Sprite> GetTilesFromLayer(std::string layer);
         std::pair<int, int> GetSize();
         std::pair<int, int> GetTileSize();
@@ -46,5 +51,8 @@ namespace Map {
 
         std::vector<Layer> layers;
         TileSet tileSet;
+
+        void moveMapX(float deltaX);
+        void handleKeys(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed);
     };
 }

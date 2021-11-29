@@ -1,6 +1,9 @@
 #include "map.h"
 
+#include "player.h"
+
 #include "iostream"
+
 
 Map::Map::Map() {
 
@@ -8,6 +11,10 @@ Map::Map::Map() {
 
 Map::Map::~Map() {
 
+}
+
+void Map::Map::Update(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed) {
+    handleKeys(keyState, playerXSpeed);
 }
 
 void Map::Map::Draw(sf::RenderWindow &window) {
@@ -33,4 +40,22 @@ std::pair<int, int> Map::Map::GetSize() {
 
 std::pair<int, int> Map::Map::GetTileSize() {
     return std::make_pair(this->tileWidth, this->tileHeight);
+}
+
+void Map::Map::moveMapX(float deltaX) {
+    for(auto& layer : layers) {
+        for(sf::Sprite& tile : layer.tiles) {
+            tile.move(deltaX, 0);
+        }
+    }
+}
+
+void Map::Map::handleKeys(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed) {
+    if(keyState[Player::KEY_RIGHT]) {
+        moveMapX(-1 * playerXSpeed);
+    }
+
+    if(keyState[Player::KEY_LEFT]) {
+        moveMapX(playerXSpeed);
+    }
 }

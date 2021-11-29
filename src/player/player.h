@@ -1,6 +1,7 @@
 #pragma once
 
 #include "gameobject.h"
+#include "animationcontroller.h"
 
 #include "SFML/Graphics.hpp"
 #include "iostream"
@@ -59,5 +60,7 @@ namespace Player {
         void moveX(SIDE);
         void moveY();
         void jump();
+
+        AnimationController::AnimationController animationController;
     };
 }

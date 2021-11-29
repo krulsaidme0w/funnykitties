@@ -9,7 +9,7 @@ GameController::GameController::GameController() {
     initPlayer();
 
     Map::MapParser parser = Map::MapParser();
-    this->map = parser.GetMap("../../../levels/map2.json");
+    this->map = parser.GetMap("../../../levels/map.json");
 
     this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
 }
@@ -39,6 +39,8 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         keyState[Player::KEY_JUMP] = false;
         checkCollisionWithPlatforms();
         window.draw(this->player->GetSprite());
+
+        this->map.Update(keyState, this->player->GetSpeed().x);
 
         window.display();
     }
@@ -125,7 +127,4 @@ void GameController::GameController::checkCollisionWithPlatforms() {
 
         }
     }
-
-
-
 }

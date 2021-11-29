@@ -12,6 +12,7 @@ Player::Player::Player(sf::Vector2f speed, float jumpAcceleration, float gravita
     this->state = FALLING;
     this->texture.loadFromFile(path);
     this->sprite.setTexture(this->texture);
+    animationController = AnimationController::AnimationController();
 }
 
 Player::Player::Player() {
@@ -22,6 +23,7 @@ Player::Player::Player() {
     this->state = 0;
     this->texture = sf::Texture();
     this->sprite = sf::Sprite();
+    animationController = AnimationController::AnimationController();
 }
 
 Player::Player::~Player() = default;
@@ -108,13 +110,13 @@ void Player::Player::jump() {
 }
 
 void Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
-    if(keyState[KEY_RIGHT]) {
-        moveX(RIGHT);
-    }
-
-    if(keyState[KEY_LEFT]) {
-        moveX(LEFT);
-    }
+//    if(keyState[KEY_RIGHT]) {
+//        moveX(RIGHT);
+//    }
+//
+//    if(keyState[KEY_LEFT]) {
+//        moveX(LEFT);
+//    }
 
     if(keyState[KEY_JUMP]) {
         jump();
