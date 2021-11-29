@@ -20,9 +20,9 @@ namespace Menu {
 
         void Draw(sf::RenderWindow &window);
 
-        void MoveUp();
-
-        void MoveDown();
+//        void MoveUp();
+//
+//        void MoveDown();
 
         int GetPressedItem() { return selectItemIndex; }
 
