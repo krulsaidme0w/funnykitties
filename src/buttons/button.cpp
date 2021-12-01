@@ -4,14 +4,14 @@
 
 #include "button.h"
 
-GUI::Button::Button(float x, float y, std::string text, sf::Font font, sf::Texture idleTexture, sf::Texture activeTexture) {
+GUI::Button::Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathActiveTexture) {
     this->pressed = false;
     this->hover = false;
 
     this->sprite.setPosition(x, y);
 //    this->sprite.setScale(sf::Vector2f(width, height));
 
-    this->font = font;
+    this->font.loadFromFile(pathFont);
     this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setFillColor(sf::Color::White);
@@ -21,10 +21,10 @@ GUI::Button::Button(float x, float y, std::string text, sf::Font font, sf::Textu
             this->sprite.getPosition().y / 2.f - this->text.getGlobalBounds().height / 2.f
             );
 
-//    this->idleTexture = idleTexture;
-//    this->activeTexture = activeTexture;
+    this->idleTexture.loadFromFile(pathIdleTexture);
+    this->activeTexture.loadFromFile(pathActiveTexture);
 
-    this->sprite.setTexture(this->idleTexture, true);
+    this->sprite.setTexture(this->idleTexture);
 
 }
 
@@ -38,8 +38,11 @@ void GUI::Button::Update(sf::Vector2f mousePos) {
             this->sprite.setTexture(this->activeTexture, true);
         }
     }
+    else {
+        this->sprite.setTexture(this->idleTexture, true);
+    }
 }
 
-void GUI::Button::Render(sf::RenderTarget *target) {
-    target->draw(this->sprite);
+void GUI::Button::Draw(sf::RenderWindow &window) {
+    window.draw(this->sprite);
 }

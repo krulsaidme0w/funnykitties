@@ -3,7 +3,7 @@ project(Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(main main.cpp src/buttons/button.cpp src/buttons/button.h)
+add_executable(main main.cpp)
 
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)

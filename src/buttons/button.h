@@ -4,12 +4,12 @@
 namespace GUI {
     class Button {
     public:
-        Button(float x, float y, std::string text, sf::Font font, sf::Texture idleTexture, sf::Texture activeTexture);
+        Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathActiveTexture);
         ~Button();
 
         void Update(sf::Vector2f mousePos);
         void MouseEvent(sf::Event &event);
-        void Render(sf::RenderTarget* target);
+        void Draw(sf::RenderWindow &window);
 
     private:
         bool pressed;

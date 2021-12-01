@@ -4,7 +4,7 @@
 #include "iostream"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
 
     Menu::Menu menu(window.getSize().x, window.getSize().y);
 

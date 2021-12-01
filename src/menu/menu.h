@@ -1,15 +1,10 @@
 //
 // Created by sonichka on 27.11.2021.
 //
-
-#ifndef PROJECT_MENU_H
-#define PROJECT_MENU_H
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "vector"
 #include "button.h"
-
-#define MAX_NUMBER_OF_ITEMS 3
 
 namespace Menu {
     class Menu {
@@ -19,6 +14,7 @@ namespace Menu {
         ~Menu();
 
         void Draw(sf::RenderWindow &window);
+        void Update();
 
 //        void MoveUp();
 //
@@ -28,13 +24,8 @@ namespace Menu {
 
     private:
         int selectItemIndex;
-        sf::Font font;
-//        sf::Text menu[MAX_NUMBER_OF_ITEMS];
-        std::vector<GUI::Button> menu;
-        sf::Texture idleTexture;
-        sf::Texture activeTexture;
+        std::vector<GUI::Button> buttons;
     };
 }
 
 
-#endif //PROJECT_MENU_H
