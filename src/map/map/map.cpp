@@ -26,6 +26,10 @@ void Map::Map::Draw(sf::RenderWindow &window) {
     }
 }
 
+void Map::Map::MoveX(float x) {
+    moveMapX(x);
+}
+
 std::vector<sf::Sprite> Map::Map::GetTilesFromLayer(std::string layer) {
     for(auto l : this->layers) {
         if(l.name == layer)

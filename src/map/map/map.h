@@ -32,6 +32,7 @@ namespace Map {
 
         void Update(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed);
         void Draw(sf::RenderWindow &window);
+        void MoveX(float x);
 
         std::vector<sf::Sprite> GetTilesFromLayer(std::string layer);
         std::pair<int, int> GetSize();

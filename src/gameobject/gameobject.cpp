@@ -21,7 +21,7 @@ void GameObject::GameObject::SetSprite(sf::Sprite sprite) {
     this->sprite = sprite;
 }
 
-sf::Sprite GameObject::GameObject::GetSprite() {
+sf::Sprite& GameObject::GameObject::GetSprite() {
     return this->sprite;
 }
 
@@ -29,6 +29,6 @@ void GameObject::GameObject::SetTexture(std::string path) {
     this->texture.loadFromFile(path);
 }
 
-sf::Texture GameObject::GameObject::GetTexture() {
+sf::Texture& GameObject::GameObject::GetTexture() {
     return this->texture;
 }

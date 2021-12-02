@@ -17,6 +17,6 @@ namespace GameController {
 
         void initPlayer();
         void handleKeys(sf::Event& event);
-        void checkCollisionWithPlatforms();
+        void checkCollisionWithPlatforms(sf::Vector2f delta);
     };
 }

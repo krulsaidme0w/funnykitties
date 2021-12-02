@@ -32,7 +32,7 @@ namespace Player {
         explicit Player();
         ~Player() final;
 
-        virtual void Update(std::array<bool, KEYS_COUNT> keyState);
+        virtual sf::Vector2f Update(std::array<bool, KEYS_COUNT> keyState);
 
         void SetSpeed(sf::Vector2f speed);
         void SetJumpAcceleration(float jumpAcceleration);
@@ -56,7 +56,7 @@ namespace Player {
         int state;
         int side;
 
-        void handleKeys(std::array<bool, KEYS_COUNT> keyState);
+        sf::Vector2f handleKeys(std::array<bool, KEYS_COUNT> keyState);
         void moveX(SIDE);
         void moveY();
         void jump();

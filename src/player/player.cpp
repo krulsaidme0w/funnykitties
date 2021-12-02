@@ -28,9 +28,11 @@ Player::Player::Player() {
 
 Player::Player::~Player() = default;
 
-void Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
-    handleKeys(keyState);
+sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
+    sf::Vector2f delta = handleKeys(keyState);
     moveY();
+
+    return delta;
 }
 
 void Player::Player::SetSpeed(sf::Vector2f speed) {
@@ -109,16 +111,23 @@ void Player::Player::jump() {
     }
 }
 
-void Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
-//    if(keyState[KEY_RIGHT]) {
-//        moveX(RIGHT);
-//    }
-//
-//    if(keyState[KEY_LEFT]) {
-//        moveX(LEFT);
-//    }
+sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
+
+    sf::Vector2f delta;
+    delta.x = 0;
+    delta.y = 0;
+
+    if(keyState[KEY_RIGHT]) {
+        delta.x = 1;
+    }
+
+    if(keyState[KEY_LEFT]) {
+        delta.x = -1;
+    }
 
     if(keyState[KEY_JUMP]) {
         jump();
     }
+
+    return delta;
 }

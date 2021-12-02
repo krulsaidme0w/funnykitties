@@ -13,10 +13,10 @@ namespace GameObject {
           sf::Vector2f GetCoordinates();
 
           void SetSprite(sf::Sprite sprite);
-          sf::Sprite GetSprite();
+          sf::Sprite& GetSprite();
 
           void SetTexture(std::string path);
-          sf::Texture GetTexture();
+          sf::Texture& GetTexture();
 
       protected:
           sf::Sprite sprite;
