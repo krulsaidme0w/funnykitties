@@ -9,7 +9,7 @@
 namespace Menu {
     class Menu {
     public:
-        Menu(unsigned int width, unsigned int height);
+        Menu(float width, float height);
 
         ~Menu();
 

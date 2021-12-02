@@ -5,7 +5,7 @@
 #include "menu.h"
 #include "button.h"
 
-Menu::Menu::Menu(unsigned int width, unsigned int height) {
+Menu::Menu::Menu(float width, float height) {
 
     GUI::Button button1 = GUI::Button(width / 2, height / (3 + 1) * 1, "play", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/Button_Dark.png", "../assets/buttons/Button_Dark_Pressed.png");
     buttons.push_back(button1);
@@ -30,7 +30,7 @@ void Menu::Menu::Update() {
     }
 }
 
-void Menu::Menu::Draw(sf::RenderWindow &window){
+void Menu::Menu::Draw(sf::RenderWindow &window) {
     for (auto& button : buttons) {
         button.Draw(window);
     }

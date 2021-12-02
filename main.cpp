@@ -7,6 +7,15 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
 
     Menu::Menu menu(window.getSize().x, window.getSize().y);
+    sf::Font font;
+//    sf::Text txt;
+//
+//    font.loadFromFile("../assets/font/GorgeousPixel.ttf");
+//
+//    txt.setFont(font);
+//
+//    txt.setCharacterSize(120);
+//    txt.setString("SFML Basic");
 
     while (window.isOpen()) {
         sf::Event event;
@@ -50,9 +59,11 @@ int main() {
             }
         }
 
-        window.clear();
+        menu.Update();
 
         menu.Draw(window);
+
+//        window.draw(txt);
 
         window.display();
     }

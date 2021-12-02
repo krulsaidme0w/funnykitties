@@ -15,18 +15,12 @@ namespace GUI {
         bool pressed;
         bool hover;
 
-        sf::Sprite sprite;
-        sf::Font font;
-        sf::Text text;
-
         sf::Texture idleTexture;
         sf::Texture hoverTexture;
         sf::Texture activeTexture;
 
-
-//        sf::Sprite activeSprite;
-//        sf::Color idleColor;
-//        sf::Color hoverColor;
-//        sf::Color activeColor;
+        sf::Sprite sprite;
+        sf::Font font;
+        sf::Text text;
     };
 }
