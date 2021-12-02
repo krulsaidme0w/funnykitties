@@ -20,14 +20,13 @@ GUI::Button::Button(float x, float y, std::string text, std::string pathFont, st
                              );
 
     this->font.loadFromFile(pathFont);
-    this->text.setFont(this->font);
     this->text.setString(text);
     this->text.setCharacterSize(24);
     this->text.setFillColor(sf::Color::White);
     this->text.setPosition(
-            this->sprite.getPosition().x / 2.f - this->text.getGlobalBounds().width / 2.f,
-            this->sprite.getPosition().y / 2.f - this->text.getGlobalBounds().height / 2.f
-            );
+            this->text.getPosition().x / 2 + 270,
+            this->sprite.getPosition().y / 2.f - this->text.getPosition().y / 2.f
+    );
 }
 
 GUI::Button::~Button() {}
@@ -46,5 +45,6 @@ void GUI::Button::Update(sf::Vector2f mousePos) {
 
 void GUI::Button::Draw(sf::RenderWindow &window) {
     window.draw(this->sprite);
+    this->text.setFont(this->font);
     window.draw(this->text);
 }
