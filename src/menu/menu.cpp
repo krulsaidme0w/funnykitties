@@ -7,13 +7,13 @@
 
 Menu::Menu::Menu(float width, float height) {
 
-    GUI::Button button1 = GUI::Button(width / 2, height / (3 + 1) * 1, "play", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/Button_Dark.png", "../assets/buttons/Button_Dark_Pressed.png");
+    GUI::Button button1 = GUI::Button(width / 2, height / (3 + 1) * 1, "play", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/play.png", "../assets/buttons/Button_Dark_Pressed.png");
     buttons.push_back(button1);
 
-    GUI::Button button2 = GUI::Button(width / 2, height / (3 + 1) * 2, "options", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/Button_Dark.png", "../assets/buttons/Button_Dark_Pressed.png");
+    GUI::Button button2 = GUI::Button(width / 2, height / (3 + 1) * 2, "options", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/options.png", "../assets/buttons/Button_Dark_Pressed.png");
     buttons.push_back(button2);
 
-    GUI::Button button3 = GUI::Button(width / 2, height / (3 + 1) * 3, "exit", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/Button_Dark.png", "../assets/buttons/Button_Dark_Pressed.png");
+    GUI::Button button3 = GUI::Button(width / 2, height / (3 + 1) * 3, "exit", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/exit.png", "../assets/buttons/Button_Dark_Pressed.png");
     buttons.push_back(button3);
 
     selectItemIndex = 0;
