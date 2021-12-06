@@ -7,6 +7,8 @@ namespace GameObject {
       class GameObject {
       public:
           explicit GameObject();
+          GameObject(sf::Sprite sprite);
+
           virtual ~GameObject();
 
           void SetCoordinates(sf::Vector2f coordinates);
@@ -17,6 +19,8 @@ namespace GameObject {
 
           void SetTexture(std::string path);
           sf::Texture& GetTexture();
+
+          void Draw(sf::RenderWindow &window, sf::Texture &, float &map_pos);
 
       protected:
           sf::Sprite sprite;

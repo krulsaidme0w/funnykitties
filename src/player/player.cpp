@@ -32,6 +32,9 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
     sf::Vector2f delta = handleKeys(keyState);
     moveY();
 
+    if (delta.x > 0) moveX(RIGHT);
+    if (delta.x < 0) moveX(LEFT);
+
     return delta;
 }
 

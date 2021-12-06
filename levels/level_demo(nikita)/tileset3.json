@@ -1,0 +1,14 @@
+{ "columns":12,
+ "image":"../../levels/level_demo(nikita)/tileset2.png",
+ "imageheight":936,
+ "imagewidth":914,
+ "margin":2,
+ "name":"tileset3",
+ "spacing":0,
+ "tilecount":156,
+ "tiledversion":"1.7.2",
+ "tileheight":72,
+ "tilewidth":72,
+ "type":"tileset",
+ "version":"1.6"
+}

@@ -9,7 +9,8 @@ GameController::GameController::GameController() {
     initPlayer();
 
     Map::MapParser parser = Map::MapParser();
-    this->map = parser.GetMap("../../levels/level_1/map.json");
+    this->map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
+    this->gameObjects = parser.GetObjects(this->map);
 
     this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
 }
@@ -37,8 +38,15 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
         sf::Vector2f delta = this->player->Update(keyState);
         keyState[Player::KEY_JUMP] = false;
+
         checkCollisionWithPlatforms(delta);
+        checkCollisionWithObjects(delta);
+
         this->map.Draw(window);
+        for (auto &object : gameObjects){
+            object->Draw(window, map.texture, map.x);
+        }
+
         window.draw(this->player->GetSprite());
 
         window.display();
@@ -91,7 +99,6 @@ void GameController::GameController::handleKeys(sf::Event& event) {
 }
 
 void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f delta) {
-
     sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
     std::pair<int, int> tileSize = map.GetTileSize();
     std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
@@ -120,6 +127,46 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
             if (delta.x == 1) {
                 this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
             }
+        }
+    }
+}
+
+void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delta) {
+
+    sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
+    std::pair<int, int> tileSize = map.GetTileSize();
+    std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
+
+    for(auto& object : gameObjects) {
+        auto tile = object->GetSprite();
+//        auto pos = tile.getPosition();
+//        tile.setPosition(pos.x + map.x, pos.y);
+
+//        if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
+//
+//            sf::Vector2f speed = player->GetSpeed();
+//
+//            if(speed.y < 0) {
+//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
+//            }
+//
+//            if(speed.y > 0 && player->GetCoordinates().y + playerSize.y < tile.getPosition().y + playerSize.y) {
+//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y - playerSize.y));
+//                player->SetState(Player::ON_GROUND);
+//                player->SetSpeed(sf::Vector2f(speed.x, 0));
+//            }
+//
+//        }
+
+        if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
+//            if (delta.x == -1) {
+//                this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
+//            }
+//
+//            if (delta.x == 1) {
+//                this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
+//            }
+            player->jump();
         }
     }
 }

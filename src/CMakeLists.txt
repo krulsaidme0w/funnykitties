@@ -3,3 +3,6 @@ add_subdirectory(gameobject)
 add_subdirectory(player)
 add_subdirectory(map)
 add_subdirectory(animation_controller)
+add_subdirectory(item)
+
+

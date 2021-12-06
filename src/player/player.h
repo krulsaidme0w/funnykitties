@@ -47,6 +47,9 @@ namespace Player {
         STATE GetState() const;
         SIDE GetSide() const;
 
+        void jump();
+
+
     private:
         sf::Vector2f speed;
         float jumpAcceleration;
@@ -59,7 +62,6 @@ namespace Player {
         sf::Vector2f handleKeys(std::array<bool, KEYS_COUNT> keyState);
         void moveX(SIDE);
         void moveY();
-        void jump();
 
         AnimationController::AnimationController animationController;
     };

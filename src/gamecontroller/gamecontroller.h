@@ -13,10 +13,13 @@ namespace GameController {
     private:
         Player::Player* player;
         Map::Map map;
+        std::vector<GameObject::GameObject*> gameObjects;
+
         std::array<bool, Player::KEYS_COUNT> keyState{};
 
         void initPlayer();
         void handleKeys(sf::Event& event);
         void checkCollisionWithPlatforms(sf::Vector2f delta);
+        void checkCollisionWithObjects(sf::Vector2f delta);
     };
 }

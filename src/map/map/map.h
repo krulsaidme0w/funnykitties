@@ -38,7 +38,11 @@ namespace Map {
         std::pair<int, int> GetSize();
         std::pair<int, int> GetTileSize();
 
+        sf::Texture texture;
+        float x;
+
     private:
+
         int width;
         int height;
 
@@ -47,7 +51,6 @@ namespace Map {
 
         int firstID;
 
-        sf::Texture texture;
         sf::Image image;
 
         std::vector<Layer> layers;

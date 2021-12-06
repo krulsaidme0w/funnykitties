@@ -3,6 +3,7 @@
 #include "nlohmann/json.hpp"
 #include "fstream"
 
+
 #include "iostream"
 
 Map::Map Map::MapParser::GetMap(const std::string& path) {
@@ -93,4 +94,16 @@ Map::Map Map::MapParser::GetMap(const std::string& path) {
     }
 
     return map;
+}
+
+std::vector<GameObject::GameObject*> Map::MapParser::GetObjects(Map &map) {
+    std::vector<GameObject::GameObject*> gameObjects;
+    for (auto &layer : map.layers){
+        if (layer.name != "item") continue;
+        for (auto &elem: layer.tiles){
+            Item::Spring *spring = new Item::Spring(elem);
+            gameObjects.push_back(spring);
+        }
+    }
+    return gameObjects;
 }

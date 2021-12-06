@@ -6,7 +6,7 @@
 
 
 Map::Map::Map() {
-
+    x = 0.0;
 }
 
 Map::Map::~Map() {
@@ -19,6 +19,7 @@ void Map::Map::Update(std::array<bool, Player::KEYS_COUNT> keyState, float playe
 
 void Map::Map::Draw(sf::RenderWindow &window) {
     for (auto &layer: layers) {
+        if (layer.name == "item") continue;
         for (auto &tile: layer.tiles) {
             tile.setTexture(this->texture);
             window.draw(tile);
@@ -47,11 +48,12 @@ std::pair<int, int> Map::Map::GetTileSize() {
 }
 
 void Map::Map::moveMapX(float deltaX) {
-    for(auto& layer : layers) {
-        for(sf::Sprite& tile : layer.tiles) {
-            tile.move(deltaX, 0);
-        }
-    }
+    //this->x += deltaX;
+//    for(auto& layer : layers) {
+//        for(sf::Sprite& tile : layer.tiles) {
+//            tile.move(deltaX, 0);
+//        }
+//    }
 }
 
 void Map::Map::handleKeys(std::array<bool, Player::KEYS_COUNT> keyState, float playerXSpeed) {
