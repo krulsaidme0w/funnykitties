@@ -9,8 +9,9 @@ namespace GameController {
     public:
         explicit GameController();
         ~GameController();
-        void Run(sf::RenderWindow& window);
+        void Run();
     private:
+        sf::RenderWindow mWindow;
         Player::Player* player;
         Map::Map map;
         std::array<bool, Player::KEYS_COUNT> keyState{};
@@ -18,5 +19,8 @@ namespace GameController {
         void initPlayer();
         void handleKeys(sf::Event& event);
         void checkCollisionWithPlatforms(sf::Vector2f delta);
+        void processEvents();
+        void update();
+        void render();
     };
 }

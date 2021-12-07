@@ -5,7 +5,9 @@
 #include "SFML/Graphics.hpp"
 #include "iostream"
 
-GameController::GameController::GameController() {
+GameController::GameController::GameController(): mWindow(sf::RenderWindow(sf::VideoMode(1920, 800), "PLAYER_TEST")) {
+
+    mWindow.setFramerateLimit(120);
     initPlayer();
 
     Map::MapParser parser = Map::MapParser();
@@ -18,30 +20,16 @@ GameController::GameController::~GameController() {
     delete player;
 }
 
-void GameController::GameController::Run(sf::RenderWindow& window) {
+void GameController::GameController::Run() {
 
-    while(window.isOpen()) {
+    while(mWindow.isOpen()) {
 
-        sf::Event event{};
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
+        processEvents();
 
-            handleKeys(event);
-        }
 
-        window.clear(sf::Color(56, 53, 53, 255));
+        update();
 
-        this->map.Update(keyState, this->player->GetSpeed().x);
-
-        sf::Vector2f delta = this->player->Update(keyState);
-        keyState[Player::KEY_JUMP] = false;
-        checkCollisionWithPlatforms(delta);
-        this->map.Draw(window);
-        window.draw(this->player->GetSprite());
-
-        window.display();
+        render();
     }
 }
 
@@ -122,4 +110,33 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
             }
         }
     }
+}
+
+void GameController::GameController::processEvents() {
+    sf::Event event{};
+    while (mWindow.pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed)
+            mWindow.close();
+
+        handleKeys(event);
+    }
+
+}
+
+void GameController::GameController::update() {
+    this->map.Update(keyState, this->player->GetSpeed().x);
+
+    sf::Vector2f delta = this->player->Update(keyState);
+    keyState[Player::KEY_JUMP] = false;
+    checkCollisionWithPlatforms(delta);
+}
+
+void GameController::GameController::render() {
+    mWindow.clear(sf::Color(56, 53, 53, 255));
+
+    this->map.Draw(mWindow);
+    mWindow.draw(this->player->GetSprite());
+
+    mWindow.display();
 }
