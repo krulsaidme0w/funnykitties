@@ -114,6 +114,13 @@ void Player::Player::jump() {
     }
 }
 
+void Player::Player::big_jump() {
+    if(state == ON_GROUND) {
+        speed.y = 1.7 * jumpAcceleration;
+        state = JUMPING;
+    }
+}
+
 sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
 
     sf::Vector2f delta;

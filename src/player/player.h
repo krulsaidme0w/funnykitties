@@ -48,6 +48,7 @@ namespace Player {
         SIDE GetSide() const;
 
         void jump();
+        void big_jump();
 
 
     private:

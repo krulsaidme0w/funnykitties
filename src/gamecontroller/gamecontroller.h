@@ -14,7 +14,6 @@ namespace GameController {
         ~GameController();
         void Run(sf::RenderWindow& window);
 
-
     private:
         Player::Player* player;
         Map::Map map;
@@ -26,5 +25,6 @@ namespace GameController {
         void handleKeys(sf::Event& event);
         void checkCollisionWithPlatforms(sf::Vector2f delta);
         void checkCollisionWithObjects(sf::Vector2f delta);
+        void checkCollisionBetweenObjects();
     };
 }

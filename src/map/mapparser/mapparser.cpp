@@ -113,6 +113,12 @@ std::vector<GameObject::GameObject*> Map::MapParser::GetObjects(Map &map) {
                 gameObjects.push_back(box);
                 continue;
             }
+
+            if (layer.id[i] == 58) {
+                Item::Exit *exit = new Item::Exit(layer.tiles[i]);
+                gameObjects.push_back(exit);
+                continue;
+            }
         }
     }
     return gameObjects;

@@ -2,7 +2,6 @@
 
 GameController::GameController::GameController() {
     initPlayer();
-//    Item::Spring::Init(player);
     Map::MapParser parser = Map::MapParser();
     this->map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
     this->gameObjects = parser.GetObjects(this->map);
@@ -17,7 +16,6 @@ GameController::GameController::~GameController() {
 void GameController::GameController::Run(sf::RenderWindow& window) {
 
     while(window.isOpen()) {
-
         sf::Event event{};
         while (window.pollEvent(event))
         {
@@ -36,6 +34,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
         checkCollisionWithPlatforms(delta);
         checkCollisionWithObjects(delta);
+        checkCollisionBetweenObjects();
 
         this->map.Draw(window);
         for (auto &object : gameObjects){
@@ -52,8 +51,8 @@ void GameController::GameController::initPlayer() {
     sf::Vector2f speed;
     speed.x = 1.5;
     speed.y = 0;
-    float jumpAcceleration = -8;
-    float gravitation = 0.09;
+    float jumpAcceleration = -6;
+    float gravitation = 0.15;
     bool enableGravitation = 1;
     float maxSpeed = 100;
     std::string path = "../assets/player/cat.png";
@@ -108,9 +107,9 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
 
             sf::Vector2f speed = player->GetSpeed();
 
-            if(speed.y < 0) {
-                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
-            }
+//            if(speed.y < 0 && player->GetCoordinates().y > tile.getPosition().y) {
+//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
+//            }
 
             if(speed.y > 0 && player->GetCoordinates().y + playerSize.y < tile.getPosition().y + playerSize.y) {
                 player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y - playerSize.y));
@@ -121,11 +120,14 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
 
         if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
             if (delta.x == -1) {
-                this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
+                player->SetCoordinates(sf::Vector2f(tile.getPosition().x + tileSize.first, player->GetCoordinates().y));
+                //player->SetCoordinates(, player->GetCoordinates().y);
+                //this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
             }
 
             if (delta.x == 1) {
-                this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
+                player->SetCoordinates(sf::Vector2f(tile.getPosition().x - playerSize.x, player->GetCoordinates().y));
+                //this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
             }
         }
     }
@@ -138,9 +140,6 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
     std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
 
     for(auto& object : gameObjects) {
-        //auto tile = object->GetSprite();
-
-
 
         switch (object->type){
             case GameObject::SPRING:
@@ -150,36 +149,35 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
             case GameObject::BOX:
                 dynamic_cast<Item::Box*>(object)->CollisionPlayer(player, delta);
                 break;
+            case GameObject::EXIT:
+                dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta);
+                break;
         }
-//        auto pos = tile.getPosition();
-//        tile.setPosition(pos.x + map.x, pos.y);
+    }
+}
 
-//        if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
-//
-//            sf::Vector2f speed = player->GetSpeed();
-//
-//            if(speed.y < 0) {
-//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
-//            }
-//
-//            if(speed.y > 0 && player->GetCoordinates().y + playerSize.y < tile.getPosition().y + playerSize.y) {
-//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y - playerSize.y));
-//                player->SetState(Player::ON_GROUND);
-//                player->SetSpeed(sf::Vector2f(speed.x, 0));
-//            }
-//
-//        }
+void GameController::GameController::checkCollisionBetweenObjects() {
+    sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
+    std::pair<int, int> tileSize = map.GetTileSize();
+    std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
 
-        //if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
-//            if (delta.x == -1) {
-//                this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
-//            }
+    for (auto& object: gameObjects){
+        if (object->type != GameObject::BOX) continue;
+
+        auto object_pos = object->GetCoordinates();
+        for(auto& tile : tiles) {
+            if(object->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
+                if (object->GetSprite().getPosition().x < tile.getPosition().x) {
+                    object->SetCoordinates(sf::Vector2f(tile.getPosition().x - tileSize.second, object_pos.y));
+                } else {
+                    object->SetCoordinates(sf::Vector2f(tile.getPosition().x + tileSize.second, object_pos.y));
+                }
+            }
+        }
+//        for (auto& object2: gameObjects){
 //
-//            if (delta.x == 1) {
-//                this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
-//            }
-//            object->Collision(player);
-//            player->jump();
 //        }
     }
+
+
 }
