@@ -1,13 +1,8 @@
 #include "gamecontroller.h"
 
-#include "mapparser.h"
-
-#include "SFML/Graphics.hpp"
-#include "iostream"
-
 GameController::GameController::GameController() {
     initPlayer();
-
+//    Item::Spring::Init(player);
     Map::MapParser parser = Map::MapParser();
     this->map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
     this->gameObjects = parser.GetObjects(this->map);
@@ -65,6 +60,7 @@ void GameController::GameController::initPlayer() {
 
     this->player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
     this->player->SetCoordinates(sf::Vector2f(1920 / 2, 1080 / 2));
+
 }
 
 void GameController::GameController::handleKeys(sf::Event& event) {
@@ -75,6 +71,10 @@ void GameController::GameController::handleKeys(sf::Event& event) {
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         keyState[Player::KEY_RIGHT] = true;
+    }
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        keyState[Player::KEY_JUMP] = true;
     }
 
     if (event.type == sf::Event::KeyReleased) {
@@ -88,7 +88,7 @@ void GameController::GameController::handleKeys(sf::Event& event) {
                 break;
             }
             case sf::Keyboard::Space: {
-                keyState[Player::KEY_JUMP] = true;
+                keyState[Player::KEY_JUMP] = false;
                 break;
             }
 
@@ -138,7 +138,19 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
     std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
 
     for(auto& object : gameObjects) {
-        auto tile = object->GetSprite();
+        //auto tile = object->GetSprite();
+
+
+
+        switch (object->type){
+            case GameObject::SPRING:
+                //auto spring = dynamic_cast<Item::Spring*>(object);
+                dynamic_cast<Item::Spring*>(object)->CollisionPlayer(player, delta);
+                break;
+            case GameObject::BOX:
+                dynamic_cast<Item::Box*>(object)->CollisionPlayer(player, delta);
+                break;
+        }
 //        auto pos = tile.getPosition();
 //        tile.setPosition(pos.x + map.x, pos.y);
 
@@ -158,7 +170,7 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
 //
 //        }
 
-        if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
+        //if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
 //            if (delta.x == -1) {
 //                this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
 //            }
@@ -166,7 +178,8 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
 //            if (delta.x == 1) {
 //                this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
 //            }
-            player->jump();
-        }
+//            object->Collision(player);
+//            player->jump();
+//        }
     }
 }

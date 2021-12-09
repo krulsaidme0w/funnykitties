@@ -21,6 +21,7 @@ namespace Map {
         int opacity;
         std::string name;
         std::vector<sf::Sprite> tiles;
+        std::vector<int> id;
     };
 
     class Map {

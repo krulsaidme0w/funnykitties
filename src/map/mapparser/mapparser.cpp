@@ -79,6 +79,7 @@ Map::Map Map::MapParser::GetMap(const std::string& path) {
                 sprite.setColor(sf::Color(255, 255, 255, layer.opacity));
 
                 layer.tiles.push_back(sprite);
+                layer.id.push_back(num);
             }
 
             x++;
@@ -100,9 +101,18 @@ std::vector<GameObject::GameObject*> Map::MapParser::GetObjects(Map &map) {
     std::vector<GameObject::GameObject*> gameObjects;
     for (auto &layer : map.layers){
         if (layer.name != "item") continue;
-        for (auto &elem: layer.tiles){
-            Item::Spring *spring = new Item::Spring(elem);
-            gameObjects.push_back(spring);
+        for (int i = 0; i < layer.tiles.size(); i++){
+            if (layer.id[i] == 125) {
+                Item::Spring *spring = new Item::Spring(layer.tiles[i]);
+                gameObjects.push_back(spring);
+                continue;
+            }
+
+            if (layer.id[i] == 145) {
+                Item::Box *box = new Item::Box(layer.tiles[i]);
+                gameObjects.push_back(box);
+                continue;
+            }
         }
     }
     return gameObjects;

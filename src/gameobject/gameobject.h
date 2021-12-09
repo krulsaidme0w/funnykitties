@@ -4,10 +4,18 @@
 #include "SFML/Graphics.hpp"
 
 namespace GameObject {
+
+    enum ObjectType{
+        NONE,
+        SPRING,
+        BOX,
+        EXIT
+    };
+
       class GameObject {
       public:
           explicit GameObject();
-          GameObject(sf::Sprite sprite);
+          GameObject(sf::Sprite sprite, ObjectType obj_type = NONE);
 
           virtual ~GameObject();
 
@@ -22,6 +30,7 @@ namespace GameObject {
 
           void Draw(sf::RenderWindow &window, sf::Texture &, float &map_pos);
 
+          ObjectType type;
       protected:
           sf::Sprite sprite;
           sf::Texture texture;

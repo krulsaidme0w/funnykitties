@@ -2,7 +2,7 @@
  "image":"../../levels/level_demo(nikita)/tileset2.png",
  "imageheight":936,
  "imagewidth":914,
- "margin":2,
+ "margin":0,
  "name":"tileset3",
  "spacing":0,
  "tilecount":156,

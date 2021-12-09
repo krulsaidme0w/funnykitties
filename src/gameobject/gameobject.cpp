@@ -4,11 +4,13 @@
 GameObject::GameObject::GameObject() {
     this->texture = sf::Texture();
     this->sprite = sf::Sprite();
+    this->type = NONE;
 }
 
-GameObject::GameObject::GameObject(sf::Sprite sprite) {
+GameObject::GameObject::GameObject(sf::Sprite sprite, ObjectType obj_type) {
     this->texture = sf::Texture();
     this->sprite = sprite;
+    this->type = obj_type;
 }
 
 GameObject::GameObject::~GameObject() {
@@ -30,6 +32,10 @@ void GameObject::GameObject::SetSprite(sf::Sprite sprite) {
 sf::Sprite& GameObject::GameObject::GetSprite() {
     return this->sprite;
 }
+
+//void GameObject::GameObject::Collision(GameObject& obj) {
+//
+//}
 
 void GameObject::GameObject::SetTexture(std::string path) {
     this->texture.loadFromFile(path);
