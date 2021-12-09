@@ -45,9 +45,19 @@ void Item::Box::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
     }
 }
 
+
+void Item::Key::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
+    if (player->GetSprite().getGlobalBounds().intersects(this->sprite.getGlobalBounds())) {
+        auto player_pos = player->GetSprite().getPosition();
+        this->sprite.setPosition(player_pos.x, player_pos.y - 60);
+    }
+}
+
 void Item::Exit::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
     auto tile = this->sprite;
     if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
         exit(0);
     }
 }
+
+

@@ -27,6 +27,13 @@ namespace Item{
         //static Player::Player* player;
     };
 
+    class Key: public GameObject::GameObject{
+    public:
+        Key(sf::Sprite &sprite) : GameObject::GameObject(sprite, ::GameObject::ObjectType::KEY){};
+
+        void CollisionPlayer(Player::Player* player, sf::Vector2f delta);
+    };
+
     class Exit: public GameObject::GameObject{
     public:
         Exit(sf::Sprite &sprite) : GameObject::GameObject(sprite, ::GameObject::ObjectType::EXIT){};
@@ -35,6 +42,8 @@ namespace Item{
         void CollisionPlayer(Player::Player* player, sf::Vector2f delta);
         //static Player::Player* player;
     };
+
+
 
 
 }

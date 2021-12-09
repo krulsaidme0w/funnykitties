@@ -9,6 +9,7 @@ namespace GameObject {
         NONE,
         SPRING,
         BOX,
+        KEY,
         EXIT
     };
 

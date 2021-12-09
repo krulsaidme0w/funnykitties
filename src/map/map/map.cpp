@@ -21,8 +21,10 @@ void Map::Map::Draw(sf::RenderWindow &window) {
     for (auto &layer: layers) {
         if (layer.name == "item") continue;
         for (auto &tile: layer.tiles) {
+            tile.move(-this->position, 0);
             tile.setTexture(this->texture);
             window.draw(tile);
+            tile.move(this->position, 0);
         }
     }
 }

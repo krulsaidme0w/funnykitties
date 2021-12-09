@@ -41,7 +41,7 @@ namespace Map {
 
         sf::Texture texture;
         float x;
-
+        float position;
     private:
 
         int width;

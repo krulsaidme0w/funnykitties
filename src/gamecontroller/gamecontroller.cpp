@@ -36,12 +36,14 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         checkCollisionWithObjects(delta);
         checkCollisionBetweenObjects();
 
+        map.position = player->GetCoordinates().x - 1920 / 2;
         this->map.Draw(window);
         for (auto &object : gameObjects){
-            object->Draw(window, map.texture, map.x);
+           object->Draw(window, map.texture, map.position);
         }
 
-        window.draw(this->player->GetSprite());
+        player->Draw(window, player->GetTexture(), map.position);
+        //window.draw(this->player->GetSprite());
 
         window.display();
     }
@@ -151,6 +153,9 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
                 break;
             case GameObject::EXIT:
                 dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta);
+                break;
+            case GameObject::KEY:
+                dynamic_cast<Item::Key*>(object)->CollisionPlayer(player, delta);
                 break;
         }
     }
