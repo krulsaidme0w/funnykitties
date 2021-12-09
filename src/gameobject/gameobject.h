@@ -10,6 +10,8 @@ namespace GameObject {
         SPRING,
         BOX,
         KEY,
+        SPIKE,
+        KEY_BOX,
         EXIT
     };
 

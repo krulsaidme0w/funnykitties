@@ -7,6 +7,7 @@ GameController::GameController::GameController() {
     this->gameObjects = parser.GetObjects(this->map);
 
     this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
+    gameStatus = 0;
 }
 
 GameController::GameController::~GameController() {
@@ -23,6 +24,13 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
                 window.close();
 
             handleKeys(event);
+        }
+
+        if (gameStatus != 0) {
+            if (gameStatus == -1) window.clear(sf::Color(255, 150, 150, 200));
+            if (gameStatus == 1) window.clear(sf::Color(150, 255, 150, 100));
+            window.display();
+            continue;
         }
 
         window.clear(sf::Color(56, 53, 53, 255));
@@ -43,15 +51,13 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         }
 
         player->Draw(window, player->GetTexture(), map.position);
-        //window.draw(this->player->GetSprite());
-
         window.display();
     }
 }
 
 void GameController::GameController::initPlayer() {
     sf::Vector2f speed;
-    speed.x = 1.5;
+    speed.x = 2;
     speed.y = 0;
     float jumpAcceleration = -6;
     float gravitation = 0.15;
@@ -151,11 +157,14 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
             case GameObject::BOX:
                 dynamic_cast<Item::Box*>(object)->CollisionPlayer(player, delta);
                 break;
-            case GameObject::EXIT:
-                dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta);
-                break;
             case GameObject::KEY:
                 dynamic_cast<Item::Key*>(object)->CollisionPlayer(player, delta);
+                break;
+            case GameObject::SPIKE:
+                gameOver(dynamic_cast<Item::Spike*>(object)->CollisionPlayer(player, delta));
+                break;
+            case GameObject::EXIT:
+                gameOver(dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta));
                 break;
         }
     }
@@ -185,4 +194,9 @@ void GameController::GameController::checkCollisionBetweenObjects() {
     }
 
 
+}
+
+void GameController::GameController::gameOver(int status) {
+    if (status == 0) return;
+    gameStatus = status;
 }

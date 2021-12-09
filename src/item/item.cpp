@@ -53,11 +53,20 @@ void Item::Key::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
     }
 }
 
-void Item::Exit::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
+
+int Item::Spike::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
+    if (player->GetSprite().getGlobalBounds().intersects(this->sprite.getGlobalBounds())) {
+        return -1;
+    }
+    return 0;
+}
+
+int Item::Exit::CollisionPlayer(Player::Player *player, sf::Vector2f delta) {
     auto tile = this->sprite;
     if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
-        exit(0);
+        return 1;
     }
+    return 0;
 }
 
 

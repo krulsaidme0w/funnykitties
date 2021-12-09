@@ -21,10 +21,13 @@ namespace GameController {
 
         std::array<bool, Player::KEYS_COUNT> keyState{};
 
+        int gameStatus;
+
         void initPlayer();
         void handleKeys(sf::Event& event);
         void checkCollisionWithPlatforms(sf::Vector2f delta);
         void checkCollisionWithObjects(sf::Vector2f delta);
         void checkCollisionBetweenObjects();
+        void gameOver(int status);
     };
 }

@@ -120,9 +120,9 @@ std::vector<GameObject::GameObject*> Map::MapParser::GetObjects(Map &map) {
                 continue;
             }
 
-            if (layer.id[i] == 58) {
-                Item::Exit *exit = new Item::Exit(layer.tiles[i]);
-                gameObjects.push_back(exit);
+            if (layer.id[i] == 83) {
+                Item::Spike *spike = new Item::Spike(layer.tiles[i]);
+                gameObjects.push_back(spike);
                 continue;
             }
 

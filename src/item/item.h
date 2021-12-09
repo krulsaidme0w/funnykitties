@@ -34,12 +34,19 @@ namespace Item{
         void CollisionPlayer(Player::Player* player, sf::Vector2f delta);
     };
 
+    class Spike: public GameObject::GameObject{
+    public:
+        Spike(sf::Sprite &sprite) : GameObject::GameObject(sprite, ::GameObject::ObjectType::SPIKE){};
+
+        int CollisionPlayer(Player::Player* player, sf::Vector2f delta);
+    };
+
     class Exit: public GameObject::GameObject{
     public:
         Exit(sf::Sprite &sprite) : GameObject::GameObject(sprite, ::GameObject::ObjectType::EXIT){};
 
         //static void Init(Player::Player* p);
-        void CollisionPlayer(Player::Player* player, sf::Vector2f delta);
+        int CollisionPlayer(Player::Player* player, sf::Vector2f delta);
         //static Player::Player* player;
     };
 
