@@ -92,11 +92,6 @@ namespace network {
                 return true;
             }
 
-
-    //        handleKeys();
-    //        update();
-    //        render();
-
             message<GameMsg> msg;
             msg.header.id = GameMsg::Game_UpdatePlayer;
             msg << mapObjects[nPlayerID];
