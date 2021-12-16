@@ -32,7 +32,7 @@ void Menu::Menu::Update(sf::RenderWindow &window) {
     auto win_pos = window.getPosition();
     auto mouse_pos = sf::Mouse::getPosition();
     for (auto& button : buttons) {
-        button.Update(sf::Vector2f(mouse_pos.x - win_pos.x, mouse_pos.y - win_pos.y - 80));
+        button.Update(sf::Vector2f(sf::Mouse::getPosition()));
     }
 }
 
