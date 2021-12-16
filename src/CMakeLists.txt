@@ -1,0 +1,8 @@
+add_subdirectory(gamecontroller)
+add_subdirectory(gameobject)
+add_subdirectory(player)
+add_subdirectory(map)
+add_subdirectory(animation_controller)
+
+add_library(dir dir.cpp)
+target_include_directories(dir PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
