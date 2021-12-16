@@ -33,6 +33,7 @@ namespace Player {
         ~Player() final;
 
         virtual sf::Vector2f Update(std::array<bool, KEYS_COUNT> keyState);
+        void Draw(sf::RenderWindow& window);
 
         void SetSpeed(sf::Vector2f speed);
         void SetJumpAcceleration(float jumpAcceleration);

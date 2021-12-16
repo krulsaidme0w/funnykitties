@@ -3,10 +3,10 @@
 GameController::GameController::GameController() {
     initPlayer();
     Map::MapParser parser = Map::MapParser();
-    this->map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
-    this->gameObjects = parser.GetObjects(this->map);
+    map = parser.GetMap("../../levels/level_1/map.json");
+    gameObjects = parser.GetObjects(this->map);
 
-    this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
+    keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
     gameStatus = 0;
 }
 
@@ -45,13 +45,13 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         checkCollisionBetweenObjects();
 
         map.position = player->GetCoordinates().x - 1920 / 2;
-        this->map.Draw(window);
+        map.Draw(window);
         for (auto &object : gameObjects){
            object->Draw(window, map.texture, map.position);
         }
 
         //dynamic_cast<GameObject::GameObject*>(player)->Draw(window, player->GetTexture(), map.position);
-        player->Draw(window, player->GetTexture(), map.position);
+        player->Draw(window);
         window.display();
     }
 }
@@ -67,7 +67,7 @@ void GameController::GameController::initPlayer() {
     std::string path = "../assets/player/cat.png";
 
     this->player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
-    this->player->SetCoordinates(sf::Vector2f(1920 / 2, 1080 / 2));
+    this->player->SetCoordinates(sf::Vector2f(1920 / 2, 100));
 
 }
 
