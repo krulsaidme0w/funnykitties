@@ -29,8 +29,8 @@ GUI::Button::Button(float x, float y, std::string text, std::string pathFont, st
 GUI::Button::~Button() {}
 
 void GUI::Button::Update(sf::Vector2f mousePos) {
-    if (this->sprite.getGlobalBounds().contains(mousePos.x, mousePos.y - this->sprite.getTexture()->getSize().y/4)) {
-        this->sprite.setTexture(this->hoverTexture);
+    if (sprite.getGlobalBounds().contains(mousePos.x, mousePos.y - sprite.getTexture()->getSize().y/4)) {
+        sprite.setTexture(hoverTexture);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             sprite.setTexture(activeTexture);
         }

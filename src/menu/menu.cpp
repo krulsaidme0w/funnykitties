@@ -29,8 +29,6 @@ Menu::Menu::~Menu() {
 }
 
 void Menu::Menu::Update(sf::RenderWindow &window) {
-    auto win_pos = window.getPosition();
-    auto mouse_pos = sf::Mouse::getPosition();
     for (auto& button : buttons) {
         button.Update(sf::Vector2f(sf::Mouse::getPosition()));
     }
