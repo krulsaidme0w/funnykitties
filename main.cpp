@@ -4,7 +4,10 @@
 #include "iostream"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
+    const int win_width = 1080;
+    const int win_height = 1920;
+
+    sf::RenderWindow window(sf::VideoMode(win_height, win_width), "SFML works!");
 
     Menu::Menu menu(window.getSize().x, window.getSize().y);
     sf::Font font;

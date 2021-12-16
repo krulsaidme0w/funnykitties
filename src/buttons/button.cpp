@@ -5,39 +5,43 @@
 #include "button.h"
 
 GUI::Button::Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
-    this->pressed = false;
-    this->hover = false;
+    pressed = false;
+    hover = false;
 
-    this->idleTexture.loadFromFile(pathIdleTexture);
-    this->activeTexture.loadFromFile(pathActiveTexture);
-    this->hoverTexture.loadFromFile(pathHoverTexture);
+    const float scale_percent = 0.5f;
+    const int x_pos = 4;
+    const int y_pos = 2;
 
-    this->sprite.setTexture(this->idleTexture);
+    idleTexture.loadFromFile(pathIdleTexture);
+    activeTexture.loadFromFile(pathActiveTexture);
+    hoverTexture.loadFromFile(pathHoverTexture);
 
-    this->sprite.setScale(sf::Vector2f(0.5f, 0.5f));
+    sprite.setTexture(idleTexture);
+
+    sprite.setScale(sf::Vector2f(scale_percent, scale_percent));
     sf::Vector2f spriteSize;
-    spriteSize.x = float(this->sprite.getTexture()->getSize().x);
-    this->sprite.setPosition(x - spriteSize.x/4, y / 2);
+    spriteSize.x = float(sprite.getTexture()->getSize().x);
+    sprite.setPosition(x - spriteSize.x / x_pos, y / y_pos);
 
-    this->font.loadFromFile(pathFont);
+    font.loadFromFile(pathFont);
 }
 
 GUI::Button::~Button() {}
 
 void GUI::Button::Update(sf::Vector2f mousePos) {
-    if (this->sprite.getGlobalBounds().contains(mousePos.x, mousePos.y - this->sprite.getTexture()->getSize().y/4)) {
-        this->sprite.setTexture(this->hoverTexture);
+    if (sprite.getGlobalBounds().contains(mousePos.x, mousePos.y - sprite.getTexture()->getSize().y/4)) {
+        sprite.setTexture(hoverTexture);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            this->sprite.setTexture(this->activeTexture);
+            sprite.setTexture(activeTexture);
         }
     }
     else {
-        this->sprite.setTexture(this->idleTexture);
+        sprite.setTexture(idleTexture);
     }
 }
 
 void GUI::Button::Draw(sf::RenderWindow &window) {
-    window.draw(this->sprite);
-    this->text.setFont(this->font);
-    window.draw(this->text);
+    window.draw(sprite);
+    text.setFont(font);
+    window.draw(text);
 }
