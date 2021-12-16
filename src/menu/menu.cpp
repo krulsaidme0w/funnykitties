@@ -1,9 +1,9 @@
-//
-// Created by sonichka on 27.11.2021.
-//
-
 #include "menu.h"
+
 #include "button.h"
+#include "gamecontroller.h"
+
+#include "SFML/Graphics.hpp"
 
 Menu::Menu::Menu(float width, float height) {
 
@@ -28,16 +28,55 @@ void Menu::Menu::Update(sf::RenderWindow &window) {
     auto win_pos = window.getPosition();
     auto mouse_pos = sf::Mouse::getPosition();
     for (auto& button : buttons) {
-        button.Update(sf::Vector2f(mouse_pos.x - win_pos.x, mouse_pos.y - win_pos.y - 80));
+        button.Update(sf::Vector2f(mouse_pos.x - win_pos.x, mouse_pos.y - win_pos.y));
     }
 
     menuAction = NONE;
     if (buttons[0].IsPressed()) menuAction = START_GAME;
     if (buttons[2].IsPressed()) menuAction = EXIT_PROGRAM;
+
+
 }
 
 void Menu::Menu::Draw(sf::RenderWindow &window) {
     for (auto& button : buttons) {
         button.Draw(window);
+    }
+}
+
+void Menu::Menu::Run(sf::RenderWindow &window) {
+    while (window.isOpen()) {
+        sf::Event event;
+
+        while (window.pollEvent(event)) {
+            switch (event.type) {
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+            }
+        }
+
+        window.clear();
+        Update(window);
+
+        switch(menuAction) {
+            case Actions::START_GAME:
+                {
+                    GameController::GameController *gameController = new GameController::GameController();
+                    gameController->Run(window);
+                    delete gameController;
+                }
+                break;
+            case Actions::EXIT_PROGRAM:
+                window.close();
+                break;
+            case NONE:
+                break;
+            default:
+                break;
+        }
+
+        Draw(window);
+        window.display();
     }
 }

@@ -116,9 +116,9 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
 
             sf::Vector2f speed = player->GetSpeed();
 
-//            if(speed.y < 0 && player->GetCoordinates().y > tile.getPosition().y) {
-//                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
-//            }
+            if(speed.y < 0 && player->GetCoordinates().y > tile.getPosition().y && delta.x == 04) {
+                player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y + tileSize.second));
+            }
 
             if(speed.y > 0 && player->GetCoordinates().y + playerSize.y < tile.getPosition().y + playerSize.y) {
                 player->SetCoordinates(sf::Vector2f(player->GetCoordinates().x, tile.getPosition().y - playerSize.y));
