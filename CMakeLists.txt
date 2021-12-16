@@ -11,6 +11,5 @@ add_subdirectory(src)
 add_subdirectory(cmd)
 add_subdirectory(tests)
 
-
 file(COPY assets DESTINATION ./)
 file(COPY levels DESTINATION ./)

@@ -4,12 +4,13 @@
 
 #include "SFML/Graphics.hpp"
 #include "iostream"
+#include "dir.cpp"
 
 GameController::GameController::GameController() {
     initPlayer();
 
     Map::MapParser parser = Map::MapParser();
-    map = parser.GetMap("../../levels/level_1/map.json");
+    map = parser.GetMap(GetExecutableDirectory() + "/levels/level_1/map.json");
 
     keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
 }
@@ -53,7 +54,7 @@ void GameController::GameController::initPlayer() {
     const float gravitation = 0.09;
     const bool enableGravitation = 1;
     const float maxSpeed = 100;
-    const std::string path = "../assets/player/cat.png";
+    const std::string path = GetExecutableDirectory() + "/assets/player/cat.png";
 
     player = std::make_unique<Player::Player>(speed, jumpAcceleration, gravitation, maxSpeed, path);
     player->SetCoordinates(sf::Vector2f(1920 / 2, 1080 / 2));

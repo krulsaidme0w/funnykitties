@@ -1,8 +1,8 @@
 #include "gameobject.h"
 
 GameObject::GameObject::GameObject() {
-    this->texture = sf::Texture();
-    this->sprite = sf::Sprite();
+    texture = sf::Texture();
+    sprite = sf::Sprite();
 }
 
 GameObject::GameObject::~GameObject() {
@@ -10,25 +10,25 @@ GameObject::GameObject::~GameObject() {
 }
 
 void GameObject::GameObject::SetCoordinates(sf::Vector2f coordinates) {
-    this->sprite.setPosition(coordinates);
+    sprite.setPosition(coordinates);
 }
 
 sf::Vector2f GameObject::GameObject::GetCoordinates() {
-    return this->sprite.getPosition();
+    return sprite.getPosition();
 }
 
 void GameObject::GameObject::SetSprite(sf::Sprite sprite) {
-    this->sprite = sprite;
+    sprite = sprite;
 }
 
 sf::Sprite& GameObject::GameObject::GetSprite() {
-    return this->sprite;
+    return sprite;
 }
 
 void GameObject::GameObject::SetTexture(std::string path) {
-    this->texture.loadFromFile(path);
+    texture.loadFromFile(path);
 }
 
 sf::Texture& GameObject::GameObject::GetTexture() {
-    return this->texture;
+    return texture;
 }
