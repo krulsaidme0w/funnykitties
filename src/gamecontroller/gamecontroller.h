@@ -2,7 +2,9 @@
 
 #include "player.h"
 #include "map.h"
+
 #include "SFML/Graphics.hpp"
+#include "memory"
 
 namespace GameController {
     class GameController {
@@ -11,7 +13,7 @@ namespace GameController {
         ~GameController();
         void Run(sf::RenderWindow& window);
     private:
-        Player::Player* player;
+        std::unique_ptr<Player::Player> player;
         Map::Map map;
         std::array<bool, Player::KEYS_COUNT> keyState{};
 

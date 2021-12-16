@@ -9,13 +9,13 @@ GameController::GameController::GameController() {
     initPlayer();
 
     Map::MapParser parser = Map::MapParser();
-    this->map = parser.GetMap("../../levels/level_1/map.json");
+    map = parser.GetMap("../../levels/level_1/map.json");
 
-    this->keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
+    keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
 }
 
 GameController::GameController::~GameController() {
-    delete player;
+
 }
 
 void GameController::GameController::Run(sf::RenderWindow& window) {
@@ -31,15 +31,15 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
             handleKeys(event);
         }
 
-        window.clear(sf::Color(56, 53, 53, 255));
+        window.clear();
 
-        this->map.Update(keyState, this->player->GetSpeed().x);
+        map.Update(keyState, player->GetSpeed().x);
 
-        sf::Vector2f delta = this->player->Update(keyState);
+        sf::Vector2f delta = player->Update(keyState);
         keyState[Player::KEY_JUMP] = false;
         checkCollisionWithPlatforms(delta);
-        this->map.Draw(window);
-        window.draw(this->player->GetSprite());
+        map.Draw(window);
+        window.draw(player->GetSprite());
 
         window.display();
     }
@@ -49,14 +49,14 @@ void GameController::GameController::initPlayer() {
     sf::Vector2f speed;
     speed.x = 1.5;
     speed.y = 0;
-    float jumpAcceleration = -8;
-    float gravitation = 0.09;
-    bool enableGravitation = 1;
-    float maxSpeed = 100;
-    std::string path = "../assets/player/cat.png";
+    const float jumpAcceleration = -8;
+    const float gravitation = 0.09;
+    const bool enableGravitation = 1;
+    const float maxSpeed = 100;
+    const std::string path = "../assets/player/cat.png";
 
-    this->player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
-    this->player->SetCoordinates(sf::Vector2f(1920 / 2, 1080 / 2));
+    player = std::make_unique<Player::Player>(speed, jumpAcceleration, gravitation, maxSpeed, path);
+    player->SetCoordinates(sf::Vector2f(1920 / 2, 1080 / 2));
 }
 
 void GameController::GameController::handleKeys(sf::Event& event) {
@@ -114,11 +114,11 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
 
         if(player->GetSprite().getGlobalBounds().intersects(tile.getGlobalBounds())) {
             if (delta.x == -1) {
-                this->map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
+                map.MoveX(-1 * (tile.getPosition().x + tileSize.first - player->GetCoordinates().x));
             }
 
             if (delta.x == 1) {
-                this->map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
+                map.MoveX(player->GetCoordinates().x + playerSize.x - tile.getPosition().x);
             }
         }
     }
