@@ -8,6 +8,9 @@
 
 namespace network {
 
+    const std::string ipAddress = "127.0.0.1";
+    int port = 8080;
+
     class GameController : network::ClientInterface<GameMsg> {
     public:
         GameController() {
@@ -27,7 +30,7 @@ namespace network {
 
     public:
         bool OnUserCreate() {
-            if (Connect("127.0.0.1", 8080)) {
+            if (Connect(ipAddress, port)) {
                 return true;
             }
             return false;
