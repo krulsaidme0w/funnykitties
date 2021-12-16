@@ -3,6 +3,7 @@
 //
 #pragma once
 #include "SFML/Graphics.hpp"
+#include <iostream>
 #include "vector"
 #include "button.h"
 
@@ -14,7 +15,7 @@ namespace Menu {
         ~Menu();
 
         void Draw(sf::RenderWindow &window);
-        void Update();
+        void Update(sf::RenderWindow &window);
 
         int GetPressedItem() { return selectItemIndex; }
 

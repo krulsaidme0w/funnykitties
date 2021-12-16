@@ -26,7 +26,7 @@ int main() {
 
         window.clear();
 
-        menu.Update();
+        menu.Update(window);
 
         menu.Draw(window);
 
