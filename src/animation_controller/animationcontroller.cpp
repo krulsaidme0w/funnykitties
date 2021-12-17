@@ -36,7 +36,7 @@ sf::Texture& AnimationController::AnimationController::GetCurrentTexture() {
 
 void AnimationController::AnimationController::SetTextureIndexToNext() {
     currentWalkIndex++;
-    if(currentWalkIndex > walkTextures.size() - 1)
+    if(currentWalkIndex > walkTextures.size())
         currentWalkIndex = 0;
 }
 

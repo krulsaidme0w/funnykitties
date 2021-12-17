@@ -65,6 +65,8 @@ namespace Player {
         void moveX(SIDE);
         void moveY();
 
+        bool changeDirection;
+
         AnimationController::AnimationController animationController;
     };
 }

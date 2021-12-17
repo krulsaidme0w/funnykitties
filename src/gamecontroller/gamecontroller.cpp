@@ -3,8 +3,8 @@
 GameController::GameController::GameController() {
     initPlayer();
     Map::MapParser parser = Map::MapParser();
-    map = parser.GetMap("../../levels/level_1/map.json");
-    gameObjects = parser.GetObjects(this->map);
+    map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
+    gameObjects = parser.GetObjects(map);
 
     keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
     gameStatus = 0;
@@ -35,9 +35,9 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
         window.clear(sf::Color(56, 53, 53, 255));
 
-        this->map.Update(keyState, this->player->GetSpeed().x);
+        map.Update(keyState, this->player->GetSpeed().x);
 
-        sf::Vector2f delta = this->player->Update(keyState);
+        sf::Vector2f delta = player->Update(keyState);
         keyState[Player::KEY_JUMP] = false;
 
         checkCollisionWithPlatforms(delta);
@@ -61,13 +61,12 @@ void GameController::GameController::initPlayer() {
     speed.x = 2;
     speed.y = 0;
     float jumpAcceleration = -6;
-    float gravitation = 0.15;
-    bool enableGravitation = 1;
+    float gravitation = 0.01;
     float maxSpeed = 100;
     std::string path = "../assets/player/cat.png";
 
-    this->player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
-    this->player->SetCoordinates(sf::Vector2f(1920 / 2, 100));
+    player = new Player::Player(speed, jumpAcceleration, gravitation, maxSpeed, path);
+    player->SetCoordinates(sf::Vector2f(1920 / 2, 100));
 
 }
 

@@ -5,12 +5,13 @@
 #include "string"
 
 
-Player::Player::Player(sf::Vector2f speed, float jumpAcceleration, float gravitation, float maxSpeed, std::string path) {
-    speed = speed;
-    gravitation = gravitation;
-    jumpAcceleration = jumpAcceleration;
-    maxSpeed = maxSpeed;
+Player::Player::Player(sf::Vector2f _speed, float _jumpAcceleration, float _gravitation, float _maxSpeed, std::string _path) {
+    speed = _speed;
+    gravitation = _gravitation;
+    jumpAcceleration = _jumpAcceleration;
+    maxSpeed = _maxSpeed;
     state = FALLING;
+    changeDirection = false;
     animationController = AnimationController::AnimationController();
     animationController.SetFrontTexture("../assets/player/front.png");
     animationController.SetJumpTexture("../assets/player/jump.png");
@@ -42,6 +43,9 @@ Player::Player::Player() {
 Player::Player::~Player() = default;
 
 sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
+
+    int oldSide = side;
+
     sf::Vector2f delta = handleKeys(keyState);
     moveY();
 
@@ -62,12 +66,15 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
             break;
     }
 
+    if(oldSide != side)
+        changeDirection = true;
+    else
+        changeDirection = false;
+
     if(delta.x > 0) sprite.setScale(sf::Vector2f(1, 1));
-    if(delta.x < 0) {
+    if(delta.x < 0 && changeDirection) {
         sprite.setScale(sf::Vector2f(-1, 1));
-        sprite.move(sf::Vector2f(sprite.getTexture()->getSize().x, 0));
     }
-    if(delta.x == 0) animationController.SetCurrentTexture(AnimationController::FRONT);
 
     animationController.Update();
 
@@ -165,10 +172,12 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
 
     if(keyState[KEY_RIGHT]) {
         delta.x = 1;
+        side = RIGHT;
     }
 
     if(keyState[KEY_LEFT]) {
         delta.x = -1;
+        side = LEFT;
     }
 
     if(keyState[KEY_JUMP]) {
