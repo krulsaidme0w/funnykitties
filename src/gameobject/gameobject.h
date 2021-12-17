@@ -31,7 +31,7 @@ namespace GameObject {
           void SetTexture(std::string path);
           sf::Texture& GetTexture();
 
-          void Draw(sf::RenderWindow &window, sf::Texture &, float &map_pos);
+          virtual void Draw(sf::RenderWindow &window, sf::Texture &, float &map_pos);
 
           ObjectType type;
       protected:

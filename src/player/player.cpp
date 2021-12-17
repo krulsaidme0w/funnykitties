@@ -11,7 +11,8 @@ Player::Player::Player(sf::Vector2f _speed, float _jumpAcceleration, float _grav
     jumpAcceleration = _jumpAcceleration;
     maxSpeed = _maxSpeed;
     state = FALLING;
-    changeDirection = false;
+    changeSide = false;
+    texture.loadFromFile("../assets/player/front.png");
     animationController = AnimationController::AnimationController();
     animationController.SetFrontTexture("../assets/player/front.png");
     animationController.SetJumpTexture("../assets/player/jump.png");
@@ -20,6 +21,8 @@ Player::Player::Player(sf::Vector2f _speed, float _jumpAcceleration, float _grav
         animationController.AddWalkTexture("../assets/player/walk/" + std::to_string(i) + ".png");
     }
 
+//    sprite.setTextureRect(sf::Rect(0, 0, 66,92));
+    //sprite.setTexture(texture);
     sprite.setTexture(animationController.GetCurrentTexture());
 }
 
@@ -45,8 +48,8 @@ Player::Player::~Player() = default;
 sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
 
     int oldSide = side;
-
     sf::Vector2f delta = handleKeys(keyState);
+
     moveY();
 
     if (delta.x > 0) moveX(RIGHT);
@@ -57,7 +60,8 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
             animationController.SetCurrentTexture(AnimationController::JUMP);
             break;
         case ON_GROUND:
-            animationController.SetCurrentTexture(AnimationController::WALK);
+            if (delta.x == 0) animationController.SetCurrentTexture(AnimationController::FRONT);
+            else animationController.SetCurrentTexture(AnimationController::WALK);
             break;
         case FALLING:
             animationController.SetCurrentTexture(AnimationController::FRONT);
@@ -66,40 +70,30 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
             break;
     }
 
-    if(oldSide != side)
-        changeDirection = true;
-    else
-        changeDirection = false;
+     animationController.Update();
 
-    if(delta.x > 0) sprite.setScale(sf::Vector2f(1, 1));
-    if(delta.x < 0 && changeDirection) {
-        //sprite.setScale(sf::Vector2f(-1, 1));
-        //sprite.move(sf::Vector2f(sprite.getTexture()->getSize().x, 0));
-    }
-
-    animationController.Update();
-
+    texture = animationController.GetCurrentTexture();
     return delta;
 }
 
 void Player::Player::SetSpeed(sf::Vector2f speed) {
-    speed = speed;
+    this->speed = speed;
 }
 
 void Player::Player::SetJumpAcceleration(float jumpAcceleration) {
-    jumpAcceleration = jumpAcceleration;
+    this->jumpAcceleration = jumpAcceleration;
 }
 
 void Player::Player::SetGravitation(float gravitation) {
-    gravitation = gravitation;
+    this->gravitation = gravitation;
 }
 
 void Player::Player::SetMaxSpeed(float maxSpeed) {
-    maxSpeed = maxSpeed;
+    this->maxSpeed = maxSpeed;
 }
 
 void Player::Player::SetState(STATE state) {
-    state = state;
+    this->state = state;
 }
 
 sf::Vector2f Player::Player::GetSpeed() const {
@@ -144,7 +138,7 @@ void Player::Player::moveY() {
         speed.y = -1 * maxSpeed * (std::abs(speed.y) / speed.y);
     }
 
-    if(speed.y > 0) {
+    if(speed.y > 1) {
         state = FALLING;
     }
 
@@ -173,11 +167,13 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
 
     if(keyState[KEY_RIGHT]) {
         delta.x = 1;
+        if (side != RIGHT) changeSide = true;
         side = RIGHT;
     }
 
     if(keyState[KEY_LEFT]) {
         delta.x = -1;
+        if (side != LEFT) changeSide = true;
         side = LEFT;
     }
 
@@ -188,7 +184,23 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
     return delta;
 }
 
-void Player::Player::Draw(sf::RenderWindow& window) {
-    sprite.setTexture(animationController.GetCurrentTexture());
+//void Player::Player::Draw(sf::RenderWindow& window) {
+//    sprite.setTexture(animationController.GetCurrentTexture());
+//    window.draw(sprite);
+//}
+
+
+void Player::Player::Draw(sf::RenderWindow &window, sf::Texture &texture, float &map_pos) {
+    sprite.move(-map_pos, 0);
+
+    sprite.setTexture(texture, true);
+    auto tex_size = texture.getSize();
+    if (side == LEFT){
+        sprite.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
+    } else {
+        sprite.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
+    }
     window.draw(sprite);
+
+    sprite.move(map_pos, 0);
 }

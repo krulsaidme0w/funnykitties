@@ -35,7 +35,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
         window.clear(sf::Color(56, 53, 53, 255));
 
-        map.Update(keyState, this->player->GetSpeed().x);
+        //map.Update(keyState, this->player->GetSpeed().x);
 
         sf::Vector2f delta = player->Update(keyState);
         keyState[Player::KEY_JUMP] = false;
@@ -45,13 +45,14 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         checkCollisionBetweenObjects();
 
         map.position = player->GetCoordinates().x - 1920 / 2;
+
         map.Draw(window);
         for (auto &object : gameObjects){
            object->Draw(window, map.texture, map.position);
         }
 
         //dynamic_cast<GameObject::GameObject*>(player)->Draw(window, player->GetTexture(), map.position);
-        player->Draw(window);
+        player->Draw(window, player->GetTexture(), map.position);
         window.display();
     }
 }
@@ -60,8 +61,8 @@ void GameController::GameController::initPlayer() {
     sf::Vector2f speed;
     speed.x = 2;
     speed.y = 0;
-    float jumpAcceleration = -6;
-    float gravitation = 0.01;
+    float jumpAcceleration = -7;
+    float gravitation = 0.20;
     float maxSpeed = 100;
     std::string path = "../assets/player/cat.png";
 
@@ -143,9 +144,9 @@ void GameController::GameController::checkCollisionWithPlatforms(sf::Vector2f de
 
 void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delta) {
 
-    sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
-    std::pair<int, int> tileSize = map.GetTileSize();
-    std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
+//    sf::Vector2u playerSize = player->GetSprite().getTexture()->getSize();
+//    std::pair<int, int> tileSize = map.GetTileSize();
+//    std::vector<sf::Sprite> tiles = map.GetTilesFromLayer("platform");
 
     for(auto& object : gameObjects) {
 

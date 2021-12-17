@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 
 AnimationController::AnimationController::AnimationController() {
+    currentClock = 0;
     currentWalkIndex = 0;
     addIndex = 0;
     currentTextureState = JUMP;
@@ -35,9 +36,8 @@ sf::Texture& AnimationController::AnimationController::GetCurrentTexture() {
 }
 
 void AnimationController::AnimationController::SetTextureIndexToNext() {
-    currentWalkIndex++;
-    if(currentWalkIndex > walkTextures.size())
-        currentWalkIndex = 0;
+    currentClock++;
+    currentWalkIndex = (currentClock / 10) % walkTextures.size();
 }
 
 void AnimationController::AnimationController::SetJumpTexture(const std::string &path) {

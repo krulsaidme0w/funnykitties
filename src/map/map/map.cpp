@@ -50,7 +50,7 @@ std::pair<int, int> Map::Map::GetTileSize() {
 }
 
 void Map::Map::moveMapX(float deltaX) {
-    //this->x += deltaX;
+//    this->x += deltaX;
 //    for(auto& layer : layers) {
 //        for(sf::Sprite& tile : layer.tiles) {
 //            tile.move(deltaX, 0);

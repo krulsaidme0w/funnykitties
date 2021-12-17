@@ -30,6 +30,7 @@ namespace AnimationController {
     private:
         TEXTURE currentTextureState;
         int currentWalkIndex;
+        int currentClock;
         int addIndex;
         std::vector<sf::Texture> walkTextures;
         sf::Texture front;

@@ -46,11 +46,8 @@ sf::Texture& GameObject::GameObject::GetTexture() {
 }
 
 void GameObject::GameObject::Draw(sf::RenderWindow &window, sf::Texture &texture, float &map_pos) {
-    auto pos = sprite.getPosition();
-    //sprite.setPosition(pos.x + map_pos, pos.y);
     sprite.move(-map_pos, 0);
-    sprite.setTexture(texture);
+    sprite.setTexture(texture, false);
     window.draw(sprite);
     sprite.move(map_pos, 0);
-    //sprite.setPosition(pos.x, pos.y);
 }
