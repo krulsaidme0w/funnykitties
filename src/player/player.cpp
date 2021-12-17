@@ -73,7 +73,8 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
 
     if(delta.x > 0) sprite.setScale(sf::Vector2f(1, 1));
     if(delta.x < 0 && changeDirection) {
-        sprite.setScale(sf::Vector2f(-1, 1));
+        //sprite.setScale(sf::Vector2f(-1, 1));
+        //sprite.move(sf::Vector2f(sprite.getTexture()->getSize().x, 0));
     }
 
     animationController.Update();
@@ -188,6 +189,6 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
 }
 
 void Player::Player::Draw(sf::RenderWindow& window) {
-    //sprite.setTexture(animationController.GetCurrentTexture());
+    sprite.setTexture(animationController.GetCurrentTexture());
     window.draw(sprite);
 }
