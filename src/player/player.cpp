@@ -71,6 +71,9 @@ sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
     }
 
      animationController.Update();
+    if(keyState[KEY_Z]) {
+        animationController.SetCurrentTexture(AnimationController::JUMP);
+    }
 
     texture = animationController.GetCurrentTexture();
     return delta;

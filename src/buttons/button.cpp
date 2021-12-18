@@ -32,7 +32,7 @@ GUI::Button::Button(float x, float y, std::string str, std::string pathFont, std
     sprite.setTexture(idleTexture);
 
     sprite.setPosition(x , y);
-    Move(-1. * (sprite.getTexture()->getSize().x / 2), 0);
+//    Move(-1. * (sprite.getTexture()->getSize().x / 2), 0);
 
     font.loadFromFile(GetExecutableDirectory() + pathFont);
     text.setFont(font);

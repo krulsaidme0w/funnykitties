@@ -21,29 +21,30 @@ Menu::Menu::~Menu() {
 void Menu::Menu::Update(sf::RenderWindow &window) {
     auto win_pos = window.getPosition();
     auto mouse_pos = sf::Mouse::getPosition();
-    for (auto& button : mainButtons) {
+    for (auto &button: mainButtons) {
         button.Update(sf::Vector2f(mouse_pos.x - win_pos.x, mouse_pos.y - win_pos.y));
     }
 
-    for (auto& button : levelButtons) {
+    for (auto &button: levelButtons) {
         button.Update(sf::Vector2f(mouse_pos.x - win_pos.x, mouse_pos.y - win_pos.y));
     }
 
     bool changed = false;
     menuAction = NONE;
-    if (mainButtons[0].IsPressed()) {
+    if (mainButtons[0].IsPressed() && state == STATE::MAIN) {
         menuAction = START_GAME;
+        state = STATE::LEVELS;
         changed = true;
     }
-    if (mainButtons[2].IsPressed()) menuAction = EXIT_PROGRAM;
+    if (mainButtons[2].IsPressed() && state == STATE::MAIN) menuAction = EXIT_PROGRAM;
 
-    for(auto i = 0; i < levelButtons.size(); ++i) {
-        if(levelButtons[i].IsPressed() && state == STATE::LEVELS && !changed) {
+    for (auto i = 0; i < levelButtons.size(); ++i) {
+        if (levelButtons[i].IsPressed() && state == STATE::LEVELS && !changed) {
             levelToStart = i;
             menuAction = START_LEVEL;
+            changed = false;
         }
     }
-
 }
 
 void Menu::Menu::Draw(sf::RenderWindow &window) {
@@ -120,8 +121,9 @@ void Menu::Menu::initLevelsButtons(float width, float height) {
     for(const auto& levelName : levelsNames) {
         std::string str_level_num = std::to_string(levelNum);
 
-        GUI::Button button = GUI::Button(width / 2, height / (2 + 1) * y_pos + offset, str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
+        GUI::Button button = GUI::Button(width * (4 % levelsNames.size())/ 4, height / (2 + 1) * y_pos + offset, str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
 
+        levelButtons.push_back(button);
         levelButtons.push_back(button);
 
 

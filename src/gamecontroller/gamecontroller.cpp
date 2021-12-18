@@ -85,6 +85,10 @@ void GameController::GameController::handleKeys(sf::Event& event) {
         keyState[Player::KEY_JUMP] = true;
     }
 
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+        keyState[Player::KEY_Z] = true;
+    }
+
     if (event.type == sf::Event::KeyReleased) {
         switch(event.key.code){
             case sf::Keyboard::A:{
@@ -97,6 +101,10 @@ void GameController::GameController::handleKeys(sf::Event& event) {
             }
             case sf::Keyboard::Space: {
                 keyState[Player::KEY_JUMP] = false;
+                break;
+            }
+            case sf::Keyboard::Z: {
+                keyState[Player::KEY_Z] = false;
                 break;
             }
 

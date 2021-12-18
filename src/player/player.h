@@ -12,7 +12,8 @@ namespace Player {
         KEY_LEFT,
         KEY_RIGHT,
         KEY_JUMP,
-        KEYS_COUNT
+        KEY_Z,
+        KEYS_COUNT,
     };
 
     enum SIDE {
