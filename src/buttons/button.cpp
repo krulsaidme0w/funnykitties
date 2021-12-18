@@ -4,9 +4,13 @@
 
 #include "button.h"
 
-GUI::Button::Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
+GUI::Button::Button(float x, float y, std::string str, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
     pressed = false;
     hover = false;
+
+    font.loadFromFile(pathFont);
+    text.setFont(font);
+    text.setString(str);
 
     idleTexture.loadFromFile(pathIdleTexture);
     activeTexture.loadFromFile(pathActiveTexture);
