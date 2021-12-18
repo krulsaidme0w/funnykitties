@@ -107,7 +107,6 @@ std::vector<std::string> Menu::Menu::getLevelsNames(std::string path) {
     std::vector<std::string> dirNames;
     for ( const auto & entry : std::filesystem::directory_iterator(path)) {
         dirNames.push_back(entry.path());
-        std::cout << "sperma" << entry.path() << std::endl;
     }
     return dirNames;
 }

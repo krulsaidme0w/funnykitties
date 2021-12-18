@@ -4,30 +4,58 @@
 #include "SFML/Graphics.hpp"
 
 AnimationController::AnimationController::AnimationController() {
-    currentIndex = 0;
-    textures = std::vector<sf::Texture>{};
+    currentClock = 0;
+    currentWalkIndex = 0;
+    addIndex = 0;
+    currentTextureState = JUMP;
+    walkTextures = std::vector<sf::Texture>(11);
 }
 
-void AnimationController::AnimationController::AddTexture(const std::string& path) {
-    sf::Texture texture;
-    texture.loadFromFile(path);
-    textures.push_back(texture);
+void AnimationController::AnimationController::AddWalkTexture(const std::string& path) {
+    walkTextures[addIndex++].loadFromFile(path);
 }
 
-sf::Texture AnimationController::AnimationController::GetCurrentTexture() {
-    return textures[currentIndex];
+sf::Texture& AnimationController::AnimationController::GetCurrentTexture() {
+    switch (currentTextureState) {
+        case FRONT:
+            return front;
+            break;
+        case SIDE:
+            return side;
+            break;
+        case JUMP:
+            return jump;
+            break;
+        case WALK:
+            return walkTextures[currentWalkIndex];
+            break;
+        default:
+            return front;
+            break;
+    }
 }
 
-int AnimationController::AnimationController::GetCurrentTextureIndex() const {
-    return currentIndex;
+void AnimationController::AnimationController::SetTextureIndexToNext() {
+    currentClock++;
+    currentWalkIndex = (currentClock / 10) % walkTextures.size();
 }
 
-void AnimationController::AnimationController::SetTextureIndex(int index) {
-    currentIndex = index;
+void AnimationController::AnimationController::SetJumpTexture(const std::string &path) {
+    jump.loadFromFile(path);
 }
 
-void AnimationController::AnimationController::SetTextreIndexToNext() {
-    currentIndex++;
-    if(currentIndex > textures.size() - 1)
-        currentIndex = 0;
+void AnimationController::AnimationController::SetFrontTexture(const std::string &path) {
+    front.loadFromFile(path);
+}
+
+void AnimationController::AnimationController::SetSideTexture(const std::string &path) {
+    side.loadFromFile(path);
+}
+
+void AnimationController::AnimationController::SetCurrentTexture(TEXTURE texture) {
+    currentTextureState = texture;
+}
+
+void AnimationController::AnimationController::Update() {
+    SetTextureIndexToNext();
 }

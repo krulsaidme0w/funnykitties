@@ -17,13 +17,15 @@ namespace Player {
 
     enum SIDE {
         LEFT,
-        RIGHT
+        RIGHT,
+        NONE
     };
 
     enum STATE {
         JUMPING,
         FALLING,
-        ON_GROUND
+        ON_GROUND,
+        STAND
     };
 
     class Player final : public GameObject::GameObject {
@@ -33,6 +35,8 @@ namespace Player {
         ~Player() final;
 
         virtual sf::Vector2f Update(std::array<bool, KEYS_COUNT> keyState);
+        //void Draw(sf::RenderWindow& window);
+        void Draw(sf::RenderWindow &window, sf::Texture &texture, float &map_pos);
 
         void SetSpeed(sf::Vector2f speed);
         void SetJumpAcceleration(float jumpAcceleration);
@@ -63,6 +67,8 @@ namespace Player {
         sf::Vector2f handleKeys(std::array<bool, KEYS_COUNT> keyState);
         void moveX(SIDE);
         void moveY();
+
+        bool changeSide;
 
         AnimationController::AnimationController animationController;
     };

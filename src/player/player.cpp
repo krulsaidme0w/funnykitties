@@ -4,37 +4,75 @@
 #include "cmath"
 #include "string"
 
-Player::Player::Player(sf::Vector2f speed, float jumpAcceleration, float gravitation, float maxSpeed, std::string path) {
-    this->speed = speed;
-    this->gravitation = gravitation;
-    this->jumpAcceleration = jumpAcceleration;
-    this->maxSpeed = maxSpeed;
-    this->state = FALLING;
-    this->texture.loadFromFile(path);
-    this->sprite.setTexture(this->texture);
+
+Player::Player::Player(sf::Vector2f _speed, float _jumpAcceleration, float _gravitation, float _maxSpeed, std::string _path) {
+    speed = _speed;
+    gravitation = _gravitation;
+    jumpAcceleration = _jumpAcceleration;
+    maxSpeed = _maxSpeed;
+    state = FALLING;
+    changeSide = false;
+    texture.loadFromFile("../assets/player/front.png");
     animationController = AnimationController::AnimationController();
+    animationController.SetFrontTexture("../assets/player/front.png");
+    animationController.SetJumpTexture("../assets/player/jump.png");
+    animationController.SetSideTexture("../assets/player/side.png");
+    for(int i = 1; i < 12; ++i) {
+        animationController.AddWalkTexture("../assets/player/walk/" + std::to_string(i) + ".png");
+    }
+
+//    sprite.setTextureRect(sf::Rect(0, 0, 66,92));
+    //sprite.setTexture(texture);
+    sprite.setTexture(animationController.GetCurrentTexture());
 }
 
 Player::Player::Player() {
-    this->speed = sf::Vector2f(0, 0);
-    this->gravitation = 0;
-    this->jumpAcceleration = 0;
-    this->maxSpeed = 0;
-    this->state = 0;
-    this->texture = sf::Texture();
-    this->sprite = sf::Sprite();
+    speed = sf::Vector2f(0, 0);
+    gravitation = 0;
+    jumpAcceleration = 0;
+    maxSpeed = 0;
+    state = FALLING;
     animationController = AnimationController::AnimationController();
+    animationController.SetFrontTexture("../assets/player/front.png");
+    animationController.SetJumpTexture("../assets/player/jump.png");
+    animationController.SetSideTexture("../assets/player/side.png");
+    for(int i = 1; i < 12; ++i) {
+        animationController.AddWalkTexture("../assets/player/walk/" + std::to_string(i) + ".png");
+    }
+
+    sprite.setTexture(animationController.GetCurrentTexture());
 }
 
 Player::Player::~Player() = default;
 
 sf::Vector2f Player::Player::Update(std::array<bool, KEYS_COUNT> keyState) {
+
+    int oldSide = side;
     sf::Vector2f delta = handleKeys(keyState);
+
     moveY();
 
     if (delta.x > 0) moveX(RIGHT);
     if (delta.x < 0) moveX(LEFT);
 
+    switch (state) {
+        case JUMPING:
+            animationController.SetCurrentTexture(AnimationController::JUMP);
+            break;
+        case ON_GROUND:
+            if (delta.x == 0) animationController.SetCurrentTexture(AnimationController::FRONT);
+            else animationController.SetCurrentTexture(AnimationController::WALK);
+            break;
+        case FALLING:
+            animationController.SetCurrentTexture(AnimationController::FRONT);
+            break;
+        default:
+            break;
+    }
+
+     animationController.Update();
+
+    texture = animationController.GetCurrentTexture();
     return delta;
 }
 
@@ -59,37 +97,37 @@ void Player::Player::SetState(STATE state) {
 }
 
 sf::Vector2f Player::Player::GetSpeed() const {
-    return this->speed;
+    return speed;
 }
 
 float Player::Player::GetJumpAcceleration() const {
-    return this->jumpAcceleration;
+    return jumpAcceleration;
 }
 
 float Player::Player::GetGravitation() const {
-    return this->gravitation;
+    return gravitation;
 }
 
 float Player::Player::GetMaxSpeed() const {
-    return this->maxSpeed;
+    return maxSpeed;
 }
 
 Player::STATE Player::Player::GetState() const {
-    return static_cast<STATE>(this->state);
+    return static_cast<STATE>(state);
 }
 
 Player::SIDE Player::Player::GetSide() const {
-    return static_cast<SIDE>(this->side);
+    return static_cast<SIDE>(side);
 }
 
 void Player::Player::moveX(SIDE side) {
-    this->side = side;
-    if(this->side == RIGHT) {
-        this->sprite.move(speed.x, 0);
+    side = side;
+    if(side == RIGHT) {
+        sprite.move(speed.x, 0);
     }
 
-    if(this->side == LEFT) {
-        this->sprite.move(-1 * speed.x, 0);
+    if(side == LEFT) {
+        sprite.move(-1 * speed.x, 0);
     }
 }
 
@@ -100,11 +138,11 @@ void Player::Player::moveY() {
         speed.y = -1 * maxSpeed * (std::abs(speed.y) / speed.y);
     }
 
-    if(speed.y > 0) {
+    if(speed.y > 1) {
         state = FALLING;
     }
 
-    this->sprite.move(0, speed.y);
+    sprite.move(0, speed.y);
 }
 
 void Player::Player::jump() {
@@ -129,10 +167,14 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
 
     if(keyState[KEY_RIGHT]) {
         delta.x = 1;
+        if (side != RIGHT) changeSide = true;
+        side = RIGHT;
     }
 
     if(keyState[KEY_LEFT]) {
         delta.x = -1;
+        if (side != LEFT) changeSide = true;
+        side = LEFT;
     }
 
     if(keyState[KEY_JUMP]) {
@@ -140,4 +182,25 @@ sf::Vector2f Player::Player::handleKeys(std::array<bool, KEYS_COUNT> keyState) {
     }
 
     return delta;
+}
+
+//void Player::Player::Draw(sf::RenderWindow& window) {
+//    sprite.setTexture(animationController.GetCurrentTexture());
+//    window.draw(sprite);
+//}
+
+
+void Player::Player::Draw(sf::RenderWindow &window, sf::Texture &texture, float &map_pos) {
+    sprite.move(-map_pos, 0);
+
+    sprite.setTexture(texture, true);
+    auto tex_size = texture.getSize();
+    if (side == LEFT){
+        sprite.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
+    } else {
+        sprite.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
+    }
+    window.draw(sprite);
+
+    sprite.move(map_pos, 0);
 }
