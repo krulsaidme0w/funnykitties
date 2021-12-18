@@ -4,7 +4,7 @@
 
 #include "button.h"
 
-GUI::Button::Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
+GUI::Button::Button(float x, float y, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
     pressed = false;
     hover = false;
 
@@ -22,8 +22,6 @@ GUI::Button::Button(float x, float y, std::string text, std::string pathFont, st
     sf::Vector2f spriteSize;
     spriteSize.x = float(sprite.getTexture()->getSize().x);
     sprite.setPosition(x - spriteSize.x / x_pos, y / y_pos);
-
-    font.loadFromFile(pathFont);
 }
 
 GUI::Button::~Button() {}
@@ -42,6 +40,4 @@ void GUI::Button::Update(sf::Vector2f mousePos) {
 
 void GUI::Button::Draw(sf::RenderWindow &window) {
     window.draw(sprite);
-    text.setFont(font);
-    window.draw(text);
 }

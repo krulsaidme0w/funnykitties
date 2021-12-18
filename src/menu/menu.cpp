@@ -11,13 +11,13 @@ Menu::Menu::Menu(float width, float height) {
     const int width_divider = 2;
     const int height_divider = (3 + 1);
 
-    GUI::Button button1 = GUI::Button(width / width_divider, height / height_divider * 1, "play", GetExecutableDirectory() + "/assets/font/GorgeousPixel.ttf", GetExecutableDirectory() + "/assets/buttons/play.png",  GetExecutableDirectory() +  "/assets/buttons/mouse_on_play.png", GetExecutableDirectory() + "/assets/buttons/play_pressed.png");
+    GUI::Button button1 = GUI::Button(width / width_divider, height / height_divider * 1, GetExecutableDirectory() + "/assets/buttons/play.png",  GetExecutableDirectory() +  "/assets/buttons/mouse_on_play.png", GetExecutableDirectory() + "/assets/buttons/play_pressed.png");
     buttons.push_back(button1);
 
-    GUI::Button button2 = GUI::Button(width / width_divider, height / height_divider * 2, "options", "../assets/font/GorgeousPixel.ttf", GetExecutableDirectory() + "/assets/buttons/options.png", GetExecutableDirectory() + "/assets/buttons/mouse_on_options.png", GetExecutableDirectory() + "/assets/buttons/options_pressed.png");
+    GUI::Button button2 = GUI::Button(width / width_divider, height / height_divider * 2, GetExecutableDirectory() + "/assets/buttons/options.png", GetExecutableDirectory() + "/assets/buttons/mouse_on_options.png", GetExecutableDirectory() + "/assets/buttons/options_pressed.png");
     buttons.push_back(button2);
 
-    GUI::Button button3 = GUI::Button(width / width_divider, height / height_divider * 3, "exit", GetExecutableDirectory() + "/assets/font/GorgeousPixel.ttf", GetExecutableDirectory() + "/assets/buttons/exit.png", GetExecutableDirectory() + "/assets/buttons/mouse_on_exit.png", GetExecutableDirectory() + "/assets/buttons/exit_pressed.png");
+    GUI::Button button3 = GUI::Button(width / width_divider, height / height_divider * 3, GetExecutableDirectory() + "/assets/buttons/exit.png", GetExecutableDirectory() + "/assets/buttons/mouse_on_exit.png", GetExecutableDirectory() + "/assets/buttons/exit_pressed.png");
     buttons.push_back(button3);
 
     selectItemIndex = 0;

@@ -9,4 +9,4 @@ find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)
 
 add_subdirectory(src)
-target_link_libraries(main LINK_PUBLIC menu button level_menu)
+target_link_libraries(main LINK_PUBLIC menu button level_menu level_button)

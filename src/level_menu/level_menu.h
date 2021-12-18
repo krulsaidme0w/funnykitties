@@ -23,6 +23,7 @@ namespace LM {
     private:
         int selectItemIndex;
         std::vector<GUI::Button> buttons;
+        std::vector<GUI::Button> level_buttons;
     };
 }
 

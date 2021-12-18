@@ -4,7 +4,7 @@
 namespace GUI {
     class Button {
     public:
-        Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture);
+        Button(float x, float y, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture);
         ~Button();
 
         void Update(sf::Vector2f mousePos);
@@ -20,7 +20,5 @@ namespace GUI {
         sf::Texture activeTexture;
 
         sf::Sprite sprite;
-        sf::Font font;
-        sf::Text text;
     };
 }

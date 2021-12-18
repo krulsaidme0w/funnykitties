@@ -3,19 +3,31 @@
 //
 
 #include "level_menu.h"
-#include "button.h"
+#include "level_button.h"
+#include "dir.cpp"
+#include "filesystem"
 
 LM::levelMenu::levelMenu(float width, float height) {
 
-    GUI::Button button1 = GUI::Button(width / 2, height / (3 + 1) * 1, "play", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/play.png", "../assets/buttons/mouse_on_play.png", "../assets/buttons/play_pressed.png");
-    buttons.push_back(button1);
+    float y_pos = 1;
+    int level_number = 1;
 
-    GUI::Button button2 = GUI::Button(width / 2, height / (3 + 1) * 2, "options", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/options.png", "../assets/buttons/mouse_on_options.png", "../assets/buttons/options_pressed.png");
-    buttons.push_back(button2);
+    while (true) {
+        std::string str_level_num = std::to_string(level_number);
 
-    GUI::Button button3 = GUI::Button(width / 2, height / (3 + 1) * 3, "exit", "../assets/font/GorgeousPixel.ttf", "../assets/buttons/exit.png", "../assets/buttons/mouse_on_exit.png", "../assets/buttons/exit_pressed.png");
-    buttons.push_back(button3);
+        if (!std::filesystem::exists("level_" + str_level_num)) {
+            break;
+        }
 
+        if (buttons.size() % 4 == 0) {
+            y_pos += 1;
+        }
+
+        GUI::levelButton button = GUI::levelButton(width / (buttons.size() % 4), height / (3 + 1) * y_pos, str_level_num, GetExecutableDirectory() + "/assets/font/GorgeousPixel.ttf", GetExecutableDirectory() + "/assets/level_buttons/level_button.png", GetExecutableDirectory() + "/assets/buttons/level_button_highlighted.png", GetExecutableDirectory() + "/assets/buttons/level_button_pressed.png");
+        level_buttons.push_back(button);
+
+        level_number++;
+    }
     selectItemIndex = 0;
 
 }
