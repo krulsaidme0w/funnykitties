@@ -5,19 +5,19 @@
 #include "button.h"
 
 GUI::Button::Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture) {
-    this->pressed = false;
-    this->hover = false;
+    pressed = false;
+    hover = false;
 
-    this->idleTexture.loadFromFile(pathIdleTexture);
-    this->activeTexture.loadFromFile(pathActiveTexture);
-    this->hoverTexture.loadFromFile(pathHoverTexture);
+    idleTexture.loadFromFile(pathIdleTexture);
+    activeTexture.loadFromFile(pathActiveTexture);
+    hoverTexture.loadFromFile(pathHoverTexture);
 
-    this->sprite.setTexture(this->idleTexture);
+    sprite.setTexture(this->idleTexture);
 
-    this->sprite.setScale(sf::Vector2f(0.5f, 0.5f));
+    sprite.setScale(sf::Vector2f(0.5f, 0.5f));
     sf::Vector2f spriteSize;
     spriteSize.x = float(this->sprite.getTexture()->getSize().x);
-    this->sprite.setPosition(x - spriteSize.x/4, y / 2);
+    sprite.setPosition(x - spriteSize.x/4, y / 2);
 
     this->font.loadFromFile(pathFont);
 }

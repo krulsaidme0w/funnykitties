@@ -6,12 +6,19 @@
 #include <iostream>
 #include "vector"
 #include "button.h"
+#include "string"
+
 
 namespace Menu {
     enum Actions{
         START_GAME,
         EXIT_PROGRAM,
         NONE
+    };
+
+    enum class STATE {
+        MAIN,
+        LEVELS
     };
 
     class Menu {
@@ -24,12 +31,20 @@ namespace Menu {
         void Update(sf::RenderWindow& window);
         void Run(sf::RenderWindow& window);
 
+
         int GetPressedItem() { return selectItemIndex; }
 
         Actions menuAction;
     private:
+        std::vector<std::string> getLevelsNames(std::string path);
+        void initLevelsButtons(float width, float height);
+        void initMainButtons(float width, float height);
+        std::vector<std::string> levelsNames;
+        STATE state;
         int selectItemIndex;
-        std::vector<GUI::Button> buttons;
+        std::vector<GUI::Button> mainButtons;
+        std::vector<GUI::Button> levelButtons;
+
     };
 }
 
