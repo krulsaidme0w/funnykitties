@@ -11,7 +11,7 @@
 namespace GameController {
     class GameController {
     public:
-        explicit GameController();
+        explicit GameController(std::string levelMap);
         ~GameController();
         void Run(sf::RenderWindow& window);
 

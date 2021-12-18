@@ -1,9 +1,9 @@
 #include "gamecontroller.h"
 
-GameController::GameController::GameController() {
+GameController::GameController::GameController(std::string levelMap) {
     initPlayer();
     Map::MapParser parser = Map::MapParser();
-    map = parser.GetMap("../../levels/level_demo(nikita)/map.json");
+    map = parser.GetMap(levelMap);
     gameObjects = parser.GetObjects(map);
 
     keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};

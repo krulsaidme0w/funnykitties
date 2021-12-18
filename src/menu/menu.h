@@ -13,6 +13,7 @@ namespace Menu {
     enum Actions{
         START_GAME,
         EXIT_PROGRAM,
+        START_LEVEL,
         NONE
     };
 
@@ -40,11 +41,11 @@ namespace Menu {
         void initLevelsButtons(float width, float height);
         void initMainButtons(float width, float height);
         std::vector<std::string> levelsNames;
+        int levelToStart;
         STATE state;
         int selectItemIndex;
         std::vector<GUI::Button> mainButtons;
         std::vector<GUI::Button> levelButtons;
-
     };
 }
 

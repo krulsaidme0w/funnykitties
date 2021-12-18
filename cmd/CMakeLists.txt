@@ -1,3 +1,3 @@
 add_executable(main main.cpp)
 
-target_link_libraries(main PUBLIC sfml-graphics gamecontroller menu)
+target_link_libraries(main PUBLIC sfml-graphics menu)

@@ -4,6 +4,7 @@
 namespace GUI {
     class Button {
     public:
+        Button(float x, float y, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture);
         Button(float x, float y, std::string text, std::string pathFont, std::string pathIdleTexture, std::string pathHoverTexture, std::string pathActiveTexture);
         ~Button();
 
@@ -14,6 +15,9 @@ namespace GUI {
         bool IsPressed(){
             return pressed;
         }
+
+        sf::Sprite& GetSprite();
+        void Move(float x, float y);
 
     private:
         bool pressed;
