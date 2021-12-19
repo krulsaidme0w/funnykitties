@@ -124,8 +124,6 @@ void Menu::Menu::initLevelsButtons(float width, float height) {
         GUI::Button button = GUI::Button(width * (4 % levelsNames.size())/ 4, height / (2 + 1) * y_pos + offset, str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
 
         levelButtons.push_back(button);
-        levelButtons.push_back(button);
-
 
         y_pos++;
         levelNum++;
