@@ -1,9 +1,9 @@
 #include "gamecontroller.h"
 
 GameController::GameController::GameController(std::string levelMap) {
+    img.loadFromFile(path);
 
     initPlayer();
-//    mapObjects[111].vPos = player->GetCoordinates() + sf::Vector2f{1.0f, 0.0f};
 
     Map::MapParser parser = Map::MapParser();
     map = parser.GetMap(levelMap);
@@ -56,6 +56,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
                         sPlayerDescription desc;
                         msg >> desc;
                         mapObjects.insert_or_assign(desc.nUniqueID, desc);
+
 
                         if (desc.nUniqueID == nPlayerID)
                         {
@@ -147,23 +148,22 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         }
 
         for (auto &object : mapObjects) {
-            sf::CircleShape player;
-            player.setRadius(40.0f);
-            player.setPosition(object.second.vPos);
-            player.setFillColor(sf::Color::Cyan);
+            if (object.second.nUniqueID == 0) {
+                continue;
+            }
+            sf::Sprite playerS;
+            playerS.setTexture(img);
+            playerS.setPosition(object.second.vPos);
             auto map_pos = map.position;
-            player.move(-map_pos, 0);
-
-//            pla.setTexture(texture, true);
-//            auto tex_size = texture.getSize();
-//            if (side == LEFT){
-//                sprite.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
-//            } else {
-//                sprite.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
-//            }
-            window.draw(player);
-
-            player.move(map_pos, 0);
+            playerS.move(-map_pos, 0);
+            auto tex_size = img.getSize();
+            if (object.second.side == (int) Player::LEFT){
+                playerS.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
+            } else {
+                playerS.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
+            }
+            window.draw(playerS);
+            playerS.move(map_pos, 0);
 //            player
 //            object->Draw(window, map.texture, map.position);
         }

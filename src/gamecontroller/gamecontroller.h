@@ -21,6 +21,8 @@ namespace GameController {
         Map::Map map;
         std::vector<GameObject::GameObject*> gameObjects;
         std::array<bool, Player::KEYS_COUNT> keyState{};
+        std::string path = "../../assets/player/jump.png";
+        sf::Texture img;
 
         /*
          * Network
