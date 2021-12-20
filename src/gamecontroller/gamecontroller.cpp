@@ -1,13 +1,18 @@
 #include "gamecontroller.h"
 
 GameController::GameController::GameController(std::string levelMap) {
+
     initPlayer();
+//    mapObjects[111].vPos = player->GetCoordinates() + sf::Vector2f{1.0f, 0.0f};
+
     Map::MapParser parser = Map::MapParser();
     map = parser.GetMap(levelMap);
     gameObjects = parser.GetObjects(map);
 
     keyState = std::array<bool, Player::KEYS_COUNT>{false, false, false};
     gameStatus = 0;
+
+
 }
 
 GameController::GameController::~GameController() {
@@ -15,7 +20,86 @@ GameController::GameController::~GameController() {
 }
 
 void GameController::GameController::Run(sf::RenderWindow& window) {
+    if (Connect("127.0.0.1", 60000)) {;
+    } else {
+        exit(0);
+    }
     while(window.isOpen()) {
+        if (IsConnected()) {
+            while (!Incoming().empty())
+            {
+                auto msg = Incoming().pop_front().msg;
+
+                switch (msg.header.id)
+                {
+                    case(GameMsg::Client_Accepted):
+                    {
+                        std::cout << "Server accepted client - you're in!\n";
+                        network::message<GameMsg> msg;
+                        msg.header.id = GameMsg::Client_RegisterWithServer;
+                        descPlayer.vPos = player->GetCoordinates();
+                        msg << descPlayer;
+                        Send(msg);
+                        break;
+                    }
+
+                    case(GameMsg::Client_AssignID):
+                    {
+                        // Server is assigning us OUR id
+                        msg >> nPlayerID;
+                        std::cout << "Assigned Client ID = " << nPlayerID << "\n";
+                        break;
+                    }
+
+                    case(GameMsg::Game_AddPlayer):
+                    {
+                        sPlayerDescription desc;
+                        msg >> desc;
+                        mapObjects.insert_or_assign(desc.nUniqueID, desc);
+
+                        if (desc.nUniqueID == nPlayerID)
+                        {
+                            // Now we exist in game world
+                            bWaitingForConnection = false;
+                        }
+                        break;
+                    }
+
+                    case(GameMsg::Game_RemovePlayer):
+                    {
+                        uint32_t nRemovalID = 0;
+                        msg >> nRemovalID;
+                        mapObjects.erase(nRemovalID);
+                        break;
+                    }
+
+                    case(GameMsg::Game_UpdatePlayer):
+                    {
+                        sPlayerDescription desc;
+                        msg >> desc;
+                        mapObjects.insert_or_assign(desc.nUniqueID, desc);
+                        break;
+                    }
+
+
+                }
+            }
+        }
+
+//        if (bWaitingForConnection)
+//        {
+//            window.clear(sf::Color(150, 255, 150, 100));
+//            window.display();
+//            sleep(1);
+//            return;
+//        }
+
+
+
+
+        /*
+         * Process Events function could be here
+         */
         sf::Event event{};
         while (window.pollEvent(event))
         {
@@ -25,15 +109,10 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
             handleKeys(event);
         }
 
-        if (gameStatus != 0) {
-            if (gameStatus == -1) window.clear(sf::Color(255, 150, 150, 200));
-            if (gameStatus == 1) window.clear(sf::Color(150, 255, 150, 100));
-            window.display();
-            sleep(1);
-            return;
-        }
 
-        window.clear(sf::Color(56, 53, 53, 255));
+        /*
+         * Update function could be here
+         */
 
         //map.Update(keyState, this->player->GetSpeed().x);
 
@@ -46,14 +125,61 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
         map.position = player->GetCoordinates().x - 1920 / 2;
 
+
+
+        /*
+         * Render function could be here
+         */
+
+
+        if (gameStatus != 0) {
+            if (gameStatus == -1) window.clear(sf::Color(255, 150, 150, 200));
+            if (gameStatus == 1) window.clear(sf::Color(150, 255, 150, 100));
+            window.display();
+            sleep(1);
+            return;
+        }
+
+        window.clear(sf::Color(56, 53, 53, 255));
         map.Draw(window);
         for (auto &object : gameObjects){
            object->Draw(window, map.texture, map.position);
         }
 
+        for (auto &object : mapObjects) {
+            sf::CircleShape player;
+            player.setRadius(40.0f);
+            player.setPosition(object.second.vPos);
+            player.setFillColor(sf::Color::Cyan);
+            auto map_pos = map.position;
+            player.move(-map_pos, 0);
+
+//            pla.setTexture(texture, true);
+//            auto tex_size = texture.getSize();
+//            if (side == LEFT){
+//                sprite.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
+//            } else {
+//                sprite.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
+//            }
+            window.draw(player);
+
+            player.move(map_pos, 0);
+//            player
+//            object->Draw(window, map.texture, map.position);
+        }
         //dynamic_cast<GameObject::GameObject*>(player)->Draw(window, player->GetTexture(), map.position);
         player->Draw(window, player->GetTexture(), map.position);
         window.display();
+
+
+        // Send player description
+        network::message<GameMsg> msg;
+        msg.header.id = GameMsg::Game_UpdatePlayer;
+        mapObjects[nPlayerID].vPos = player->GetCoordinates();
+        mapObjects[nPlayerID].side = (int) player->GetSide();
+
+        msg << mapObjects[nPlayerID];
+        Send(msg);
     }
 }
 

@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.16.3)
 project(funny_kitties CXX)
 
 set(CMAKE_CXX_STANDARD 20)
+SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-pthread")
+
 
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)
