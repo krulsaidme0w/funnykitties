@@ -1,7 +1,28 @@
 #include "gamecontroller.h"
 
 GameController::GameController::GameController(std::string levelMap) {
-    img.loadFromFile(path);
+//    img.loadFromFile(path);
+//    std::string path = "../../assets/player/jump.png";
+
+    //////////////////////////////////////////////
+
+    img.loadFromFile("../../assets/player/front.png");
+    animationController = AnimationController::AnimationController();
+    animationController.SetFrontTexture("../../assets/player/front.png");
+    animationController.SetJumpTexture("../../assets/player/jump.png");
+    animationController.SetSideTexture("../../assets/player/side.png");
+    for(int i = 1; i < 12; ++i) {
+        animationController.AddWalkTexture("../../assets/player/walk/" + std::to_string(i) + ".png");
+    }
+
+//    sprite.setTextureRect(sf::Rect(0, 0, 66,92));
+    //sprite.setTexture(texture);
+
+
+//    sprite.setTexture(animationController.GetCurrentTexture());
+
+
+    //////////////////////////////////////////////
 
     initPlayer();
 
@@ -152,7 +173,79 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
                 continue;
             }
             sf::Sprite playerS;
+
+            sf::Vector2f delta = object.second.delta;
+
+//            MOVEY
+            object.second.vVel.y += object.second.gravitation;
+
+            if(std::abs(object.second.vVel.y) > player->GetMaxSpeed()) {
+                object.second.vVel.y = -1 * player->GetMaxSpeed() * (std::abs(object.second.vVel.y) / object.second.vVel.y);
+            }
+
+            if(object.second.vVel.y > 1) {
+                object.second.state = (int) Player::FALLING;
+            }
+
+
+
+            playerS.move(0, object.second.vVel.y);
+
+            int side = object.second.side;
+            if(side > 0) {
+                playerS.move(object.second.vVel.x, 0);
+            }
+
+            if(side < 0) {
+                playerS.move(-1 * object.second.vVel.x, 0);
+            }
+
+
+            ////////////////////////
+
+
+            switch (object.second.state) {
+                case ((int) Player::JUMPING):
+                    animationController.SetCurrentTexture(AnimationController::JUMP);
+                    break;
+                case ((int) Player::ON_GROUND):
+                    if (delta.x == 0) animationController.SetCurrentTexture(AnimationController::FRONT);
+                    else animationController.SetCurrentTexture(AnimationController::WALK);
+                    break;
+                case ((int) Player::FALLING):
+                    animationController.SetCurrentTexture(AnimationController::FRONT);
+                    break;
+                default:
+                    break;
+            }
+
+            animationController.Update();
+//            if(keyState[KEY_Z]) {
+//                animationController.SetCurrentTexture(AnimationController::JUMP);
+//            }
+
+            img = animationController.GetCurrentTexture();
+
+
             playerS.setTexture(img);
+
+
+
+
+
+
+            /*
+             *
+             *
+             *
+             *
+             *
+             *
+             */
+//            sf::Sprite playerS;
+////            animationController.
+////            auto a = (AnimationController::TEXTURE) 1;
+//            playerS.setTexture(animationController.GetCurrentTexture());
             playerS.setPosition(object.second.vPos);
             auto map_pos = map.position;
             playerS.move(-map_pos, 0);
