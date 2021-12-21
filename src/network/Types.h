@@ -24,8 +24,11 @@ struct sPlayerDescription {
     uint32_t nUniqueID = 0;
     uint32_t nAvatarID = 0;
 
+    int state;
     int side;
+    float gravitation;
 
     sf::Vector2f vPos;
     sf::Vector2f vVel;
+    sf::Vector2f delta;
 };

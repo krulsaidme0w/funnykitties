@@ -51,6 +51,7 @@ namespace Player {
         float GetMaxSpeed() const;
         STATE GetState() const;
         SIDE GetSide() const;
+        SIDE GetDelta() const;
 
         void jump();
         void big_jump();

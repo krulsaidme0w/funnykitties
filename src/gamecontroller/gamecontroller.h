@@ -23,6 +23,8 @@ namespace GameController {
         std::array<bool, Player::KEYS_COUNT> keyState{};
         std::string path = "../../assets/player/jump.png";
         sf::Texture img;
+        AnimationController::AnimationController animationController;
+
 
         /*
          * Network

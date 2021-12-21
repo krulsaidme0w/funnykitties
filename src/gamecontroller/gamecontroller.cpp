@@ -176,11 +176,18 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         network::message<GameMsg> msg;
         msg.header.id = GameMsg::Game_UpdatePlayer;
         mapObjects[nPlayerID].vPos = player->GetCoordinates();
+        mapObjects[nPlayerID].vVel = player->GetSpeed();
+
+
         mapObjects[nPlayerID].side = (int) player->GetSide();
+        mapObjects[nPlayerID].gravitation = player->GetGravitation();
+        mapObjects[nPlayerID].delta = delta;
+        mapObjects[nPlayerID].state = (int) player->GetState();
 
         msg << mapObjects[nPlayerID];
         Send(msg);
     }
+
 }
 
 void GameController::GameController::initPlayer() {
