@@ -261,7 +261,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 //            object->Draw(window, map.texture, map.position);
         }
         //dynamic_cast<GameObject::GameObject*>(player)->Draw(window, player->GetTexture(), map.position);
-        player->Draw(window, player->GetTexture(), map.position);
+//        player->Draw(window, player->GetTexture(), map.position);
         window.display();
 
 
