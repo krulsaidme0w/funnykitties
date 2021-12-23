@@ -11,7 +11,7 @@ find_package(nlohmann_json 3.2.0 REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(cmd)
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
 
 file(COPY assets DESTINATION ./)
