@@ -48,6 +48,10 @@ void Menu::Menu::Update(sf::RenderWindow &window) {
 }
 
 void Menu::Menu::Draw(sf::RenderWindow &window) {
+    background.loadFromFile("../assets/menu_background/bg.png");
+    bg.setTexture(background);
+    bg.setPosition(0, 0);
+    window.draw(bg);
     if(state == STATE::MAIN) {
         for (auto& button : mainButtons) {
             button.Draw(window);

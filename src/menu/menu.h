@@ -46,6 +46,9 @@ namespace Menu {
         int selectItemIndex;
         std::vector<GUI::Button> mainButtons;
         std::vector<GUI::Button> levelButtons;
+        sf::Image bgImage;
+        sf::Texture background;
+        sf::Sprite bg;
     };
 }
 
