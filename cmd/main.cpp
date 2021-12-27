@@ -1,5 +1,3 @@
-#include "gamecontroller.h"
-
 #include "SFML/Graphics.hpp"
 #include "menu.h"
 

@@ -249,12 +249,48 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
             playerS.setPosition(object.second.vPos);
             auto map_pos = map.position;
             playerS.move(-map_pos, 0);
+
             auto tex_size = img.getSize();
             if (object.second.side == (int) Player::LEFT){
                 playerS.setTextureRect(sf::IntRect(tex_size.x, 0, -tex_size.x, tex_size.y));
             } else {
                 playerS.setTextureRect(sf::IntRect(0, 0, tex_size.x, tex_size.y));
             }
+
+            for(auto& item : gameObjects) {
+                if(item->type == GameObject::BOX) {
+                    auto tile = item->GetSprite();
+                    auto tile_rect = item->GetSprite().getGlobalBounds();
+                    auto speed = object.second.vVel;
+
+                    sf::Vector2u playerSize = playerS.getTexture()->getSize();
+                    if(playerS.getGlobalBounds().intersects(tile.getGlobalBounds())) {
+                        if (object.second.vVel.y > 0 && playerS.getPosition().y + playerS.getTexture()->getSize().y < tile.getPosition().y + playerS.getTexture()->getSize().y) {
+                            //playerS.setPosition(sf::Vector2f(playerS.getPosition().x, tile.getPosition().y - playerSize.y));
+                            object.second.state = (Player::ON_GROUND);
+                            object.second.vVel = (sf::Vector2f(speed.x, 0));
+                        }
+                    }
+
+                    if (playerS.getGlobalBounds().intersects(tile.getGlobalBounds())){
+                        if (object.second.delta.x == -1) {
+                            auto player_xy = playerS.getPosition();
+                            auto box_xy = item->GetSprite().getPosition();
+                            item->GetSprite().move(-speed.x,0);
+                            playerS.setPosition(sf::Vector2f (tile_rect.left + tile_rect.width, player_xy.y));
+                        }
+
+                        if (object.second.delta.x == 1) {
+                            auto player_xy = playerS.getPosition();
+                            auto box_xy = item->GetSprite().getPosition();
+                            item->GetSprite().move(speed.x, 0);
+                            playerS.setPosition(sf::Vector2f (tile_rect.left - playerS.getGlobalBounds().width, player_xy.y));
+                        }
+                    }
+                }
+            }
+
+
             window.draw(playerS);
             playerS.move(map_pos, 0);
 //            player
