@@ -168,6 +168,10 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
            object->Draw(window, map.texture, map.position);
         }
 
+        for(auto &object : mapObjects) {
+
+        }
+
         for (auto &object : mapObjects) {
             if (object.second.nUniqueID == 0) {
                 continue;
