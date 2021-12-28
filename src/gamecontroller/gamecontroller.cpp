@@ -268,7 +268,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
 
                     if(playerS.getGlobalBounds().intersects(tile.getGlobalBounds())) {
                         if (object.second.vVel.y > 0 && playerS.getPosition().y + playerS.getTexture()->getSize().y < tile.getPosition().y + playerS.getTexture()->getSize().y) {
-                            playerS.setPosition(sf::Vector2f(playerS.getPosition().x, tile.getPosition().y - playerS.getTexture()->getSize().y));
+                            //playerS.setPosition(sf::Vector2f(playerS.getPosition().x, tile.getPosition().y - playerS.getTexture()->getSize().y));
                             object.second.state = (Player::ON_GROUND);
                             object.second.vVel = (sf::Vector2f(speed.x, 0));
                         }
