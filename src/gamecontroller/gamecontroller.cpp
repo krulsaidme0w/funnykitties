@@ -139,6 +139,7 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
         //map.Update(keyState, this->player->GetSpeed().x);
 
         sf::Vector2f delta = player->Update(keyState);
+        sf::Vector2f playerDelta = delta;
         keyState[Player::KEY_JUMP] = false;
 
         checkCollisionWithPlatforms(delta);
@@ -168,10 +169,8 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
            object->Draw(window, map.texture, map.position);
         }
 
-        for(auto &object : mapObjects) {
-
-        }
-
+        bool gameIsOver = false;
+        bool firstPlayer = true;
         for (auto &object : mapObjects) {
             if (object.second.nUniqueID == 0) {
                 continue;
@@ -267,10 +266,9 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
                     auto tile_rect = item->GetSprite().getGlobalBounds();
                     auto speed = object.second.vVel;
 
-                    sf::Vector2u playerSize = playerS.getTexture()->getSize();
                     if(playerS.getGlobalBounds().intersects(tile.getGlobalBounds())) {
                         if (object.second.vVel.y > 0 && playerS.getPosition().y + playerS.getTexture()->getSize().y < tile.getPosition().y + playerS.getTexture()->getSize().y) {
-                            //playerS.setPosition(sf::Vector2f(playerS.getPosition().x, tile.getPosition().y - playerSize.y));
+                            playerS.setPosition(sf::Vector2f(playerS.getPosition().x, tile.getPosition().y - playerS.getTexture()->getSize().y));
                             object.second.state = (Player::ON_GROUND);
                             object.second.vVel = (sf::Vector2f(speed.x, 0));
                         }
@@ -280,26 +278,41 @@ void GameController::GameController::Run(sf::RenderWindow& window) {
                         if (object.second.delta.x == -1) {
                             auto player_xy = playerS.getPosition();
                             auto box_xy = item->GetSprite().getPosition();
-                            item->GetSprite().move(-speed.x,0);
+                            item->GetSprite().move(-object.second.vVel.x,0);
                             playerS.setPosition(sf::Vector2f (tile_rect.left + tile_rect.width, player_xy.y));
                         }
 
                         if (object.second.delta.x == 1) {
                             auto player_xy = playerS.getPosition();
                             auto box_xy = item->GetSprite().getPosition();
-                            item->GetSprite().move(speed.x, 0);
+                            item->GetSprite().move(object.second.vVel.x, 0);
                             playerS.setPosition(sf::Vector2f (tile_rect.left - playerS.getGlobalBounds().width, player_xy.y));
                         }
                     }
                 }
-            }
 
+//                if(item->type == GameObject::EXIT && firstPlayer) {
+//                    if(playerS.getGlobalBounds().intersects(item->GetSprite().getGlobalBounds())) {
+//                        gameIsOver = true;
+//                    }
+//                    else {
+//                        gameIsOver = false;
+//                        firstPlayer = false;
+//                    }
+//                }
+
+            }
 
             window.draw(playerS);
             playerS.move(map_pos, 0);
 //            player
 //            object->Draw(window, map.texture, map.position);
         }
+
+//        if(gameIsOver) {
+//            gameOver(1);
+//        }
+
         //dynamic_cast<GameObject::GameObject*>(player)->Draw(window, player->GetTexture(), map.position);
 //        player->Draw(window, player->GetTexture(), map.position);
         window.display();
@@ -436,10 +449,10 @@ void GameController::GameController::checkCollisionWithObjects(sf::Vector2f delt
                 dynamic_cast<Item::Key*>(object)->CollisionPlayer(player, delta);
                 break;
             case GameObject::SPIKE:
-                gameOver(dynamic_cast<Item::Spike*>(object)->CollisionPlayer(player, delta));
+                //gameOver(dynamic_cast<Item::Spike*>(object)->CollisionPlayer(player, delta));
                 break;
             case GameObject::EXIT:
-                gameOver(dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta));
+                //gameOver(dynamic_cast<Item::Exit*>(object)->CollisionPlayer(player, delta));
                 break;
         }
     }
