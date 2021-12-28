@@ -119,13 +119,15 @@ void Menu::Menu::initLevelsButtons(float width, float height) {
     levelsNames = getLevelsNames( "../levels/");
 
     float y_pos = 0;
-    int levelNum = 1;
+    int levelNum = 0;
     float offset = 60;
 
     for(const auto& levelName : levelsNames) {
-        std::string str_level_num = std::to_string(levelNum);
+        std::string str_level_num = std::to_string(levelNum + 1);
 
-        GUI::Button button = GUI::Button(width * (4 % levelsNames.size())/ 4, height / (2 + 1) * y_pos + offset, str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
+        //GUI::Button button = GUI::Button(width * (4 % levelsNames.size())/ 4, height / (2 + 1) * y_pos + offset, str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
+        GUI::Button button = GUI::Button(400 + 300 * (levelNum / 3), 150 + 300 * (levelNum % 3), str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
+        //GUI::Button button = GUI::Button(40 , 40 , str_level_num, "/assets/font/GorgeousPixel.ttf", "/assets/level_buttons/level_button.png", "/assets/level_buttons/level_button_highlighted.png", "/assets/level_buttons/level_button_pressed.png");
 
         levelButtons.push_back(button);
 
